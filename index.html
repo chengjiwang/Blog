@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Chengji&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chengji's Blog">
+<meta property="og:url" content="http://chengjiwang.github.io/Blog/index.html">
+<meta property="og:site_name" content="Chengji's Blog">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chengji's Blog">
+<meta name="twitter:description">
+  
+    <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">Chengji&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-JavaScript-物件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2016/03/16/JavaScript-物件/" class="article-date">
+  <time datetime="2016-03-16T12:59:50.447Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2016/03/16/JavaScript-物件/">JavaScript-物件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>物件是屬性(property)所構成的一個集合。每個屬性皆具有一個名稱(name)與一個值(value)。</p>
+<h1 id="建立物件字面-object-literal"><a href="#建立物件字面-object-literal" class="headerlink" title="建立物件字面(object literal)"></a>建立物件字面(object literal)</h1><p>為物件加上一個變數宣告，然後在{ }裡加入屬性，屬性間需以逗號分開，最後一個屬性不需要逗號。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var dog = &#123;</span><br><span class="line">	name: <span class="string">"snoopy"</span>,</span><br><span class="line">	breed: <span class="string">"Beagle"</span>,</span><br><span class="line">	weight: 20</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="如何操作屬性"><a href="#如何操作屬性" class="headerlink" title="如何操作屬性"></a>如何操作屬性</h1><h3 id="1-存取-access-物件的屬性"><a href="#1-存取-access-物件的屬性" class="headerlink" title="1.  存取(access)物件的屬性"></a>1.  存取(access)物件的屬性</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dog.name  //使用點號的方式</span><br><span class="line">dog[<span class="string">"name"</span>] //使用方括號的方式</span><br></pre></td></tr></table></figure>
+<h3 id="2-如何改變一個屬性"><a href="#2-如何改變一個屬性" class="headerlink" title="2.  如何改變一個屬性"></a>2.  如何改變一個屬性</h3><p>將一個新值賦值給該屬性。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dog.weight= 25; //weight的值會變成25</span><br></pre></td></tr></table></figure>
+<h3 id="3-如何添加新的屬性"><a href="#3-如何添加新的屬性" class="headerlink" title="3.  如何添加新的屬性"></a>3.  如何添加新的屬性</h3><p>指定新的屬性並對它賦值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dog.owner= <span class="string">"Charlie Brown"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="4-刪除屬性"><a href="#4-刪除屬性" class="headerlink" title="4.  刪除屬性"></a>4.  刪除屬性</h3><p>使用delete。 屬性刪除成功，delete運算式會傳回true。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete dog.owner;</span><br></pre></td></tr></table></figure>
+<h1 id="物件傳遞給函式"><a href="#物件傳遞給函式" class="headerlink" title="物件傳遞給函式"></a>物件傳遞給函式</h1><p>物件是按reference傳遞(pass-by-reference)，所以當你叫用一個函式並把一個物件傳遞給它時，<br>你所傳遞的是物件reference，這代表著，如果你在函式中改變物件的屬性，會因而改變原本物件的屬性。</p>
+<h1 id="物件的方法-method"><a href="#物件的方法-method" class="headerlink" title="物件的方法(method)"></a>物件的方法(method)</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var dog = &#123;</span><br><span class="line">	name: <span class="string">"snoopy"</span>,</span><br><span class="line">	model: <span class="string">"Beagle"</span>,</span><br><span class="line">	weight: 20</span><br><span class="line">	bark: <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">		alert(woof);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>物件裡的函式稱為方法(method)，要呼叫物件的方法，還是要用點號。<br>如 dog.bark();</p>
+<h1 id="物件建構程序-object-constructor"><a href="#物件建構程序-object-constructor" class="headerlink" title="物件建構程序(object constructor)"></a>物件建構程序(object constructor)</h1><p>當有大量的物件須建立時，我們可以使用另一種更方便的方法建立物件，就是物件建構程序(object constructor)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> Dog(name,breed,weight)&#123;</span><br><span class="line">	this.name: name ;</span><br><span class="line">	this.breed: breed ;</span><br><span class="line">	this.weight: weight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var snoopy = new Dog(<span class="string">"snoopy"</span>,<span class="string">"Beagle"</span>,20);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/03/16/JavaScript-物件/" data-id="cimhtklsd0001o4lid0335pds" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2016/03/16/JavaScript-物件/">JavaScript-物件</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Chengji Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>
