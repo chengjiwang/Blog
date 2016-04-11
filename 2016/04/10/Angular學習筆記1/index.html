@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Angular學習筆記1 | Chengji&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以下是紀錄我學習codeschool的shaping up with angular單元的level 1筆記。
+Angular 是client端的JavaScript 框架，可以在HTML裡增加一些互動
+DirectivesAngular是透過directives在HTML裡增加behavior。Directive是在HTML標籤的一個標示，它使angular知道如何去調用JavaScript c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular學習筆記1">
+<meta property="og:url" content="http://chengjiwang.github.io/Blog/2016/04/10/Angular學習筆記1/index.html">
+<meta property="og:site_name" content="Chengji's Blog">
+<meta property="og:description" content="以下是紀錄我學習codeschool的shaping up with angular單元的level 1筆記。
+Angular 是client端的JavaScript 框架，可以在HTML裡增加一些互動
+DirectivesAngular是透過directives在HTML裡增加behavior。Directive是在HTML標籤的一個標示，它使angular知道如何去調用JavaScript c">
+<meta property="og:updated_time" content="2016-04-11T06:40:42.004Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular學習筆記1">
+<meta name="twitter:description" content="以下是紀錄我學習codeschool的shaping up with angular單元的level 1筆記。
+Angular 是client端的JavaScript 框架，可以在HTML裡增加一些互動
+DirectivesAngular是透過directives在HTML裡增加behavior。Directive是在HTML標籤的一個標示，它使angular知道如何去調用JavaScript c">
+  
+    <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">Chengji&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Angular學習筆記1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2016/04/10/Angular學習筆記1/" class="article-date">
+  <time datetime="2016-04-10T01:54:41.000Z" itemprop="datePublished">2016-04-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Angular學習筆記1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下是紀錄我學習codeschool的shaping up with angular單元的level 1筆記。</p>
+<p>Angular 是client端的JavaScript 框架，可以在HTML裡增加一些互動</p>
+<h1 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h1><p>Angular是透過directives在HTML裡增加behavior。Directive是在HTML標籤的一個標示，它使angular知道如何去調用JavaScript code。<br>當我們想要調用一個function，我們可以在HTML標籤裡增加一個ng-controller的屬性，並設定其值為function的名稱，就可以呼叫<br>該function。</p>
+<a id="more"></a>
+<h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><p>要開始使用Angular，首先我們需要再HTML裡引入Angular的libraries，之後就是引入Angular application。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> <span class="built_in">type</span>=<span class="string">"text/css"</span> href=<span class="string">"bootstrap.min.css"</span> /&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"angular.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"app.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h1><p>Modules是一個我們寫Angular application的地方，它可以讓我們的程式碼更可維護、更可讀和更能測試。<br>同時，它定義我們的application相依性，因為我們可能在執行一個Module的時候，需要其相依的Modules。</p>
+<h2 id="如何建立一個Module"><a href="#如何建立一個Module" class="headerlink" title="如何建立一個Module"></a>如何建立一個Module</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var app = angular.module(<span class="string">'store'</span>, [ ]);</span><br></pre></td></tr></table></figure>
+<p>其中的store的位置是放application的名稱，[ ]是放相依的Modules</p>
+<p>建立完Module之後就可以引入它，我們在app.js寫入上面的Module，並在HTML裡引入app.js檔。<br>然後我們需要在HTML標籤增加一個ng-app的directive(在此設定 ng-app=”store”)。<br>當HTML文件被載入後，這個directive會執行store這個Module，並產生一個Angular application。</p>
+<h1 id="Expression"><a href="#Expression" class="headerlink" title="Expression"></a>Expression</h1><p>Expression可以讓我們插入動態的值到HTML。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt; &#123;&#123;<span class="string">"hello"</span> + <span class="string">" you"</span>&#125;&#125;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>之後會render出 hello you。</p>
+<h1 id="Controllers"><a href="#Controllers" class="headerlink" title="Controllers"></a>Controllers</h1><p>Controllers是定義我們application的函式和值的地方，可以幫助我們在頁面上呈現資料。</p>
+<p>將整個application放在closure裡是個好習慣<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  var app = angular.module(<span class="string">'store'</span>, [ ]);</span><br><span class="line">  app.controller(<span class="string">'StoreController'</span>, <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>其中的’StoreController’ 是Controllers的名稱</p>
+<p>ng-controller directive允許我們將controller附加在HTML element裡面。屬性的值是controller的名稱(在此為 StoreController)。我們可以使用as去指名expressions裡我們將使用的StoreController別名(在此為store)，之後我們就可以使用store.product 去存取我們要呈現在頁面上的值。</p>
+<h1 id="ng-show-directive"><a href="#ng-show-directive" class="headerlink" title="ng-show directive"></a>ng-show directive</h1><p>要如何讓按鈕只有在canPurchase是true的時候才會顯示?<br>可以使用ng-show directive去設定一個expression為store.product.canPurchase<br>這個directive會使按鈕只有在expression的值是true的時候才會顯示</p>
+<h1 id="ng-hide-directive"><a href="#ng-hide-directive" class="headerlink" title="ng-hide directive"></a>ng-hide directive</h1><p>當一個產品已經賣出去時，我們不要顯示該商品資訊，<br>雖然我們可以使用ng-show=”!store.product.soldOut”的方式，<br>但有另一種更好的方式是使用ng-hide=”store.product.soldOut”</p>
+<h1 id="ng-repeat-directive"><a href="#ng-repeat-directive" class="headerlink" title="ng-repeat directive"></a>ng-repeat directive</h1><p>我們可以使用ng-repeat directive去重複選取array裡的項目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng-repeat=<span class="string">"product in store.products"</span></span><br></pre></td></tr></table></figure>
+<p>store.products是我們要重複選取的array</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/" data-id="cimvmxz8i00018klixof65zob" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2016/04/11/Angular學習筆記2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Angular學習筆記2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2016/03/16/JavaScript-物件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript-物件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/Blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2016/04/11/Angular學習筆記2/">Angular學習筆記2</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2016/04/10/Angular學習筆記1/">Angular學習筆記1</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2016/03/16/JavaScript-物件/">JavaScript-物件</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Chengji Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>
