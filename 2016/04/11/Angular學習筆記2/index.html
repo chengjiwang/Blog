@@ -15,7 +15,7 @@ filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limi
 <meta property="og:description" content="以下是紀錄我學習codeschool的shaping up with angular單元的level 2筆記。
 filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter
 1&amp;#123;&amp;#123; data | filter:options &amp;#">
-<meta property="og:updated_time" content="2016-04-12T05:39:14.463Z">
+<meta property="og:updated_time" content="2016-04-14T13:42:21.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular學習筆記2">
 <meta name="twitter:description" content="以下是紀錄我學習codeschool的shaping up with angular單元的level 2筆記。
@@ -100,15 +100,16 @@ filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limi
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;product.price | currency &#125;&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="ng-source-directive"><a href="#ng-source-directive" class="headerlink" title="ng-source directive"></a>ng-source directive</h1><h1 id="ng-click-directive"><a href="#ng-click-directive" class="headerlink" title="ng-click directive"></a>ng-click directive</h1><p>我們可以使用ng-click directive讓頁面上的tabs被按下時產生變化</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li&gt; &lt;a href ng-click=<span class="string">"tab = 1"</span>&gt; Description&lt;/a&gt; &lt;/li&gt;</span><br><span class="line">	&lt;li&gt; &lt;a href ng-click=<span class="string">"tab = 2"</span>&gt; Specifications&lt;/a&gt; &lt;/li&gt;</span><br><span class="line">	&lt;li&gt; &lt;a href ng-click=<span class="string">"tab = 3"</span>&gt; Reviews&lt;/a&gt; &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&#123;&#123;tab&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>對ng-click directive的expression賦值，如tab = 1，<br>所以當我們按下第一個tabs時，tab值等於1<br>如果要讓tab的值顯示在頁面上，可以使用expression<br>當tab值改變，expression也會跟著改變，我們定義這叫2-way Data Binding</p>
-<h1 id="ng-init-directive"><a href="#ng-init-directive" class="headerlink" title="ng-init directive"></a>ng-init directive</h1><p>ng-init directive可以讓我們在scope裡對expression賦值<br>ng-init=”tab = 1”，代表初始化值為tab = 1</p>
-<h1 id="ng-class-directive"><a href="#ng-class-directive" class="headerlink" title="ng-class directive"></a>ng-class directive</h1><p>可以讓我們tab被選到時，可以動態新增class</p>
-<p>ng-class=”{ active:tab === 1 }”<br>設定class的name，之後是一個expression賦值，如果expression為true，<br>會設定active的class。</p>
+<p>對ng-click directive的expression賦值，如tab = 1，所以當我們按下第一個tabs時，tab值等於1。<br>如果要讓tab的值顯示在頁面上，可以使用expression，當tab值改變，expression也會跟著改變，我們定義這叫2-way Data Binding。</p>
+<h1 id="ng-init-directive"><a href="#ng-init-directive" class="headerlink" title="ng-init directive"></a>ng-init directive</h1><p>ng-init directive允許我們在scope裡對expression賦值<br>ng-init=”tab = 1”，代表初始化值為tab = 1</p>
+<h1 id="ng-class-directive"><a href="#ng-class-directive" class="headerlink" title="ng-class directive"></a>ng-class directive</h1><p>當某個tab被選到時，ng-class directive可以動態新增class</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng-class=<span class="string">"&#123; active:tab === 1 &#125;"</span></span><br></pre></td></tr></table></figure>
+<p>設定class的name(在此為active)，之後是一個expression賦值，如果expression為true，會新增active的class。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cimwzlnmy0001ecli8skc59i7" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cimye69mp0001n0lia4ldavyz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -118,6 +119,15 @@ filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limi
   
     
 <nav id="article-nav">
+  
+    <a href="/Blog/2016/04/12/Angular學習筆記3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Angular學習筆記3
+        
+      </div>
+    </a>
   
   
     <a href="/Blog/2016/04/10/Angular學習筆記1/" id="article-nav-older" class="article-nav-link-wrap">
@@ -171,6 +181,10 @@ filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limi
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/Blog/2016/04/12/Angular學習筆記3/">Angular學習筆記3</a>
+          </li>
         
           <li>
             <a href="/Blog/2016/04/11/Angular學習筆記2/">Angular學習筆記2</a>
