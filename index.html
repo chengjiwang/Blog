@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
@@ -88,23 +88,15 @@
       
         <h1 id="1-Install-AngularFire"><a href="#1-Install-AngularFire" class="headerlink" title="1. Install AngularFire"></a>1. Install AngularFire</h1><p>為了使Angular和Firebase互相連動必須引入Firebase and AngularFire libraries</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"https://cdn.firebase.com/js/client/2.2.4/firebase.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="2-Creating-an-Angular-Module"><a href="#2-Creating-an-Angular-Module" class="headerlink" title="2.Creating an Angular Module"></a>2.Creating an Angular Module</h1><p>Angular的module須設定firebase為相依的module</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var myApp = angular.module(<span class="string">"myApp"</span>, [<span class="string">"firebase"</span>]);</span><br></pre></td></tr></table></figure>
-<p>這樣設定可以讓我們透過Controller、Factory、Service存取$firebase的service($firebaseObject、$firebaseArray 、 $firebaseAuth services)</p>
-<h1 id="3-Creating-a-Controller"><a href="#3-Creating-a-Controller" class="headerlink" title="3.Creating a Controller"></a>3.Creating a Controller</h1><p>要在controller存取data，只要在controller裡注入(injecting)$firebase的service</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">myApp.controller(<span class="string">"MyController"</span>, [<span class="string">"<span class="variable">$scope</span>"</span>, <span class="string">"<span class="variable">$firebaseArray</span>"</span>,</span><br><span class="line">        <span class="keyword">function</span>(<span class="variable">$scope</span>, <span class="variable">$firebaseArray</span>) &#123;</span><br><span class="line">          //Code here</span><br><span class="line">        &#125;</span><br><span class="line">      ]);</span><br></pre></td></tr></table></figure>
-<h1 id="4-Binding-a-Model-to-Firebase"><a href="#4-Binding-a-Model-to-Firebase" class="headerlink" title="4. Binding a Model to Firebase"></a>4. Binding a Model to Firebase</h1><p>建立Firebase reference，然後綁定 ng-model 和 Firebase 所對應的資料，在此是綁定Firebase URL上的資料到$scope.messages</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var ref = new Firebase(<span class="string">"URL"</span>);</span><br><span class="line"><span class="variable">$scope</span>.messages = <span class="variable">$firebaseArray</span>(ref);</span><br></pre></td></tr></table></figure>
-<h1 id="5-Reading-Data"><a href="#5-Reading-Data" class="headerlink" title="5. Reading Data"></a>5. Reading Data</h1><p>當我們綁定Firebase URL到 model $firebaseObject 或 $firebaseArray ，Firebase就會和 model 產生連動，也就是當資料改變的時候，model 也會跟這更新。ng-repeat 是讓資料render出來。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"example-messages"</span> class=<span class="string">"example-chat-messages"</span>&gt;</span><br><span class="line">  &lt;li ng-repeat=<span class="string">"msg in messages"</span>&gt;</span><br><span class="line">    &lt;strong class=<span class="string">"example-chat-username"</span>&gt;&#123;&#123; msg.from &#125;&#125;&lt;/strong&gt;</span><br><span class="line">    &#123;&#123; msg.body &#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="6-Writing-Data"><a href="#6-Writing-Data" class="headerlink" title="6. Writing Data"></a>6. Writing Data</h1><p>要將資料寫入$firebaseArray， 可以使用$firebaseArray的 $add()方法</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.messages.<span class="variable">$add</span>(&#123; from: name, body: <span class="variable">$scope</span>.msg &#125;);</span><br></pre></td></tr></table></figure>
-<h1 id="參考文件："><a href="#參考文件：" class="headerlink" title="參考文件："></a>參考文件：</h1><p>1.<a href="https://www.firebase.com/docs/web/libraries/angular/quickstart.html" target="_blank" rel="external">AngularFire Quickstart</a></p>
-
+        
+          <p class="article-more-link">
+            <a href="/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="ciniwixpx0001n4li9bhzfkoi" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="cinomkoxa000c8kli47oaziqf" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -139,12 +131,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>以下是紀錄我學習codeschool的shaping up with angular單元的level 3筆記。</p>
+<p>未完成 修改中</p>
 <h1 id="ng-model-directive"><a href="#ng-model-directive" class="headerlink" title="ng-model directive"></a>ng-model directive</h1><p>ng-model=”review.stars”會綁定form element到review.stars</p>
+<p>The ngModel directive binds an input,select, textarea (or custom form control) to a property on the scope using NgModelController, which is created and exposed by this directive</p>
+<h1 id="ng-submit-directive"><a href="#ng-submit-directive" class="headerlink" title="ng-submit directive"></a>ng-submit directive</h1><p>ng-submit允許使用者送出表單就會引發submit事件<br>ng-submit=”reviewCtrl.addReview(product)”</p>
+<p>#</p>
+<p>novalidate : Turn off default HTML validation</p>
+<p>level 4</p>
+<p>ng-include 可以將檔案的名字<br>ng-include is expecting a variable with the name of the file to include.<br>To pass the name directly as a string, use single quotes (‘…’)</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="ciniwixpl0000n4libwd2bt4n" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="cinomkovs00038kliyyrdx92s" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -190,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="ciniwixrb000cn4liuhveqrjc" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cinomkow000068kli8ky0zo80" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -224,9 +223,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以下是紀錄我學習codeschool的shaping up with angular單元的level 1筆記。</p>
-<p>Angular 是client端的JavaScript 框架，可以在HTML裡增加一些互動</p>
-<h1 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h1><p>Angular是透過directives在HTML裡增加behavior。Directive是在HTML標籤的一個標示，它使angular知道如何去調用JavaScript code。<br>當我們想要調用一個controller function，我們可以在HTML標籤裡增加一個ng-controller的屬性，並設定其值為function的名稱，<br>就可以呼叫該function。</p>
+        <h1 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h1><ul>
+<li>AngularJS是透過directives在HTML裡增加behavior。Directive是在HTML標籤的一個標示，它使angular知道如何去調用JavaScript code。</li>
+<li>當我們想要調用一個controller function，我們可以在HTML標籤裡增加一個ng-controller的屬性，並設定其值為function的名稱，就可以呼叫該function。</li>
+</ul>
         
           <p class="article-more-link">
             <a href="/Blog/2016/04/10/Angular學習筆記1/#more">Read More</a>
@@ -235,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/" data-id="ciniwixqe0004n4liuu9e297k" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/" data-id="cinomkov700008klit90vqshm" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -279,7 +279,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/03/16/JavaScript-物件/" data-id="ciniwixqa0003n4libgaatp2h" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/03/16/JavaScript-物件/" data-id="cinomkovw00048kliv167dp0t" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
@@ -301,7 +301,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
     </div>
@@ -311,7 +311,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/Blog/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/Blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a>
     </div>
@@ -330,7 +330,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -367,7 +367,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 Chengji Wang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
