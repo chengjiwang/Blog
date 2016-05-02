@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Chengji's Blog">
 <meta property="og:description" content="1. Install AngularFire為了使Angular和Firebase互相連動必須引入Firebase and AngularFire libraries
 12&amp;lt;script src=&quot;https://cdn.firebase.com/js/client/2.2.4/firebase.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;https://cd">
-<meta property="og:updated_time" content="2016-05-01T14:23:31.855Z">
+<meta property="og:updated_time" content="2016-05-02T13:42:08.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular學習筆記4-Firebase的AngularFire使用">
 <meta name="twitter:description" content="1. Install AngularFire為了使Angular和Firebase互相連動必須引入Firebase and AngularFire libraries
@@ -88,26 +88,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-Install-AngularFire"><a href="#1-Install-AngularFire" class="headerlink" title="1. Install AngularFire"></a>1. Install AngularFire</h1><p>為了使Angular和Firebase互相連動必須引入Firebase and AngularFire libraries</p>
+        <h2 id="1-Install-AngularFire"><a href="#1-Install-AngularFire" class="headerlink" title="1. Install AngularFire"></a>1. Install AngularFire</h2><p>為了使Angular和Firebase互相連動必須引入Firebase and AngularFire libraries</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"https://cdn.firebase.com/js/client/2.2.4/firebase.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="2-Creating-an-Angular-Module"><a href="#2-Creating-an-Angular-Module" class="headerlink" title="2.Creating an Angular Module"></a>2.Creating an Angular Module</h1><p>Angular的module須設定firebase為相依的module</p>
+<h2 id="2-Creating-an-Angular-Module"><a href="#2-Creating-an-Angular-Module" class="headerlink" title="2.Creating an Angular Module"></a>2.Creating an Angular Module</h2><p>Angular的module須設定firebase為相依的module</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var myApp = angular.module(<span class="string">"myApp"</span>, [<span class="string">"firebase"</span>]);</span><br></pre></td></tr></table></figure>
 <p>這樣設定可以讓我們透過Controller、Factory、Service存取$firebase的service($firebaseObject、$firebaseArray 、 $firebaseAuth services)</p>
-<h1 id="3-Creating-a-Controller"><a href="#3-Creating-a-Controller" class="headerlink" title="3.Creating a Controller"></a>3.Creating a Controller</h1><p>要在controller存取data，只要在controller裡注入(injecting)$firebase的service</p>
+<h2 id="3-Creating-a-Controller"><a href="#3-Creating-a-Controller" class="headerlink" title="3.Creating a Controller"></a>3.Creating a Controller</h2><p>要在controller存取data，只要在controller裡注入(injecting)$firebase的service</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">myApp.controller(<span class="string">"MyController"</span>, [<span class="string">"<span class="variable">$scope</span>"</span>, <span class="string">"<span class="variable">$firebaseArray</span>"</span>,</span><br><span class="line">        <span class="keyword">function</span>(<span class="variable">$scope</span>, <span class="variable">$firebaseArray</span>) &#123;</span><br><span class="line">          //Code here</span><br><span class="line">        &#125;</span><br><span class="line">      ]);</span><br></pre></td></tr></table></figure>
-<h1 id="4-Binding-a-Model-to-Firebase"><a href="#4-Binding-a-Model-to-Firebase" class="headerlink" title="4. Binding a Model to Firebase"></a>4. Binding a Model to Firebase</h1><p>建立Firebase reference，然後綁定 ng-model 和 Firebase 所對應的資料，在此是綁定Firebase URL上的資料到$scope.messages</p>
+<h2 id="4-Binding-a-Model-to-Firebase"><a href="#4-Binding-a-Model-to-Firebase" class="headerlink" title="4. Binding a Model to Firebase"></a>4. Binding a Model to Firebase</h2><p>建立Firebase reference，然後綁定 ng-model 和 Firebase 所對應的資料，在此是綁定Firebase URL上的資料到$scope.messages</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var ref = new Firebase(<span class="string">"URL"</span>);</span><br><span class="line"><span class="variable">$scope</span>.messages = <span class="variable">$firebaseArray</span>(ref);</span><br></pre></td></tr></table></figure>
-<h1 id="5-Reading-Data"><a href="#5-Reading-Data" class="headerlink" title="5. Reading Data"></a>5. Reading Data</h1><p>當我們綁定Firebase URL到 model $firebaseObject 或 $firebaseArray ，Firebase就會和 model 產生連動，也就是當資料改變的時候，model 也會跟這更新。ng-repeat 是讓資料render出來。</p>
+<h2 id="5-Reading-Data"><a href="#5-Reading-Data" class="headerlink" title="5. Reading Data"></a>5. Reading Data</h2><p>當我們綁定Firebase URL到 model $firebaseObject 或 $firebaseArray ，Firebase就會和 model 產生連動，也就是當資料改變的時候，model 也會跟這更新。ng-repeat 是讓資料render出來。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"example-messages"</span> class=<span class="string">"example-chat-messages"</span>&gt;</span><br><span class="line">  &lt;li ng-repeat=<span class="string">"msg in messages"</span>&gt;</span><br><span class="line">    &lt;strong class=<span class="string">"example-chat-username"</span>&gt;&#123;&#123; msg.from &#125;&#125;&lt;/strong&gt;</span><br><span class="line">    &#123;&#123; msg.body &#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="6-Writing-Data"><a href="#6-Writing-Data" class="headerlink" title="6. Writing Data"></a>6. Writing Data</h1><p>要將資料寫入$firebaseArray， 可以使用$firebaseArray的 $add()方法</p>
+<h2 id="6-Writing-Data"><a href="#6-Writing-Data" class="headerlink" title="6. Writing Data"></a>6. Writing Data</h2><p>要將資料寫入$firebaseArray， 可以使用$firebaseArray的 $add()方法</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.messages.<span class="variable">$add</span>(&#123; from: name, body: <span class="variable">$scope</span>.msg &#125;);</span><br></pre></td></tr></table></figure>
-<h1 id="參考文件："><a href="#參考文件：" class="headerlink" title="參考文件："></a>參考文件：</h1><p>1.<a href="https://www.firebase.com/docs/web/libraries/angular/quickstart.html" target="_blank" rel="external">AngularFire Quickstart</a></p>
+<h2 id="參考文件："><a href="#參考文件：" class="headerlink" title="參考文件："></a>參考文件：</h2><p>1.<a href="https://www.firebase.com/docs/web/libraries/angular/quickstart.html" target="_blank" rel="external">AngularFire Quickstart</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="cinomkoxa000c8kli47oaziqf" class="article-share-link">Partager</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="cinpdr2if000370lit3312nnw" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>

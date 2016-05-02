@@ -86,7 +86,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-Install-AngularFire"><a href="#1-Install-AngularFire" class="headerlink" title="1. Install AngularFire"></a>1. Install AngularFire</h1><p>為了使Angular和Firebase互相連動必須引入Firebase and AngularFire libraries</p>
+        <h2 id="1-Install-AngularFire"><a href="#1-Install-AngularFire" class="headerlink" title="1. Install AngularFire"></a>1. Install AngularFire</h2><p>為了使Angular和Firebase互相連動必須引入Firebase and AngularFire libraries</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"https://cdn.firebase.com/js/client/2.2.4/firebase.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
@@ -96,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="cinomkoxa000c8kli47oaziqf" class="article-share-link">Partager</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="cinpdr2if000370lit3312nnw" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -130,20 +130,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以下是紀錄我學習codeschool的shaping up with angular單元的level 3筆記。</p>
-<p>未完成 修改中</p>
-<h1 id="ng-model-directive"><a href="#ng-model-directive" class="headerlink" title="ng-model directive"></a>ng-model directive</h1><p>ng-model=”review.stars”會綁定form element到review.stars</p>
-<p>The ngModel directive binds an input,select, textarea (or custom form control) to a property on the scope using NgModelController, which is created and exposed by this directive</p>
-<h1 id="ng-submit-directive"><a href="#ng-submit-directive" class="headerlink" title="ng-submit directive"></a>ng-submit directive</h1><p>ng-submit允許使用者送出表單就會引發submit事件<br>ng-submit=”reviewCtrl.addReview(product)”</p>
-<p>#</p>
-<p>novalidate : Turn off default HTML validation</p>
-<p>level 4</p>
-<p>ng-include 可以將檔案的名字<br>ng-include is expecting a variable with the name of the file to include.<br>To pass the name directly as a string, use single quotes (‘…’)</p>
-
+        <p>未完成 修改中</p>
+<h2 id="ng-model-directive"><a href="#ng-model-directive" class="headerlink" title="ng-model directive"></a>ng-model directive</h2><p>ng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span> <span class="attr">placeholder</span>=<span class="string">"Enter your name"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在此會將使用者輸入的內容值，儲存於name變數中</p>
+        
+          <p class="article-more-link">
+            <a href="/Blog/2016/04/12/Angular學習筆記3/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="cinomkovs00038kliyyrdx92s" class="article-share-link">Partager</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="cinpdr2i4000170liwlwe6xgd" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -177,8 +176,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以下是紀錄我學習codeschool的shaping up with angular單元的level 2筆記。</p>
-<h1 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h1><p>Angular有很多的filter(如date、 uppercase &amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter</p>
+        <h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>Angular有很多的filter(如date、 uppercase &amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; data | filter:options &#125;&#125;</span><br></pre></td></tr></table></figure>
 <p>pipe( | ) 會將data輸出到後面的filter</p>
         
@@ -189,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cinomkow000068kli8ky0zo80" class="article-share-link">Partager</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cinpdr2jl000d70lixu44esdx" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -223,7 +221,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h1><ul>
+        <h2 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h2><ul>
 <li>AngularJS是透過directives在HTML裡增加behavior。Directive是在HTML標籤的一個標示，它使angular知道如何去調用JavaScript code。</li>
 <li>當我們想要調用一個controller function，我們可以在HTML標籤裡增加一個ng-controller的屬性，並設定其值為function的名稱，就可以呼叫該function。</li>
 </ul>
@@ -235,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/" data-id="cinomkov700008klit90vqshm" class="article-share-link">Partager</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/" data-id="cinpdr2hu000070lix4k94e6o" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -279,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/03/16/JavaScript-物件/" data-id="cinomkovw00048kliv167dp0t" class="article-share-link">Partager</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/03/16/JavaScript-物件/" data-id="cinpdr2ij000470liyhujh72d" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>

@@ -5,22 +5,22 @@
   
   <title>Angular學習筆記2 | Chengji&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以下是紀錄我學習codeschool的shaping up with angular單元的level 2筆記。
-filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter
-1&amp;#123;&amp;#123; data | filter:options &amp;#">
+  <meta name="description" content="filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter
+1&amp;#123;&amp;#123; data | filter:options &amp;#125;&amp;#125;
+pipe( | ) 會將data輸出到後面的filter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular學習筆記2">
 <meta property="og:url" content="http://chengjiwang.github.io/Blog/2016/04/11/Angular學習筆記2/index.html">
 <meta property="og:site_name" content="Chengji's Blog">
-<meta property="og:description" content="以下是紀錄我學習codeschool的shaping up with angular單元的level 2筆記。
-filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter
-1&amp;#123;&amp;#123; data | filter:options &amp;#">
-<meta property="og:updated_time" content="2016-04-14T13:42:21.798Z">
+<meta property="og:description" content="filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter
+1&amp;#123;&amp;#123; data | filter:options &amp;#125;&amp;#125;
+pipe( | ) 會將data輸出到後面的filter">
+<meta property="og:updated_time" content="2016-05-02T05:57:38.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular學習筆記2">
-<meta name="twitter:description" content="以下是紀錄我學習codeschool的shaping up with angular單元的level 2筆記。
-filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter
-1&amp;#123;&amp;#123; data | filter:options &amp;#">
+<meta name="twitter:description" content="filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter
+1&amp;#123;&amp;#123; data | filter:options &amp;#125;&amp;#125;
+pipe( | ) 會將data輸出到後面的filter">
   
     <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
   
@@ -91,25 +91,31 @@ filterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limi
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以下是紀錄我學習codeschool的shaping up with angular單元的level 2筆記。</p>
-<h1 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h1><p>Angular有很多的filter(如date、 uppercase &amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter</p>
+        <h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>Angular有很多的filter(如date、 uppercase &amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; data | filter:options &#125;&#125;</span><br></pre></td></tr></table></figure>
 <p>pipe( | ) 會將data輸出到後面的filter</p>
 <a id="more"></a>
 <p>currency filter: 會列印出適當的金錢符號和小數點位數</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;product.price | currency &#125;&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="ng-source-directive"><a href="#ng-source-directive" class="headerlink" title="ng-source directive"></a>ng-source directive</h1><h1 id="ng-click-directive"><a href="#ng-click-directive" class="headerlink" title="ng-click directive"></a>ng-click directive</h1><p>我們可以使用ng-click directive讓頁面上的tabs被按下時產生變化</p>
+<h2 id="ng-source-directive"><a href="#ng-source-directive" class="headerlink" title="ng-source directive"></a>ng-source directive</h2><h2 id="ng-click-directive"><a href="#ng-click-directive" class="headerlink" title="ng-click directive"></a>ng-click directive</h2><p>ng-click directive 是當有ng-click 事件發生的時候，會去執行expression的內容。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li&gt; &lt;a href ng-click=<span class="string">"tab = 1"</span>&gt; Description&lt;/a&gt; &lt;/li&gt;</span><br><span class="line">	&lt;li&gt; &lt;a href ng-click=<span class="string">"tab = 2"</span>&gt; Specifications&lt;/a&gt; &lt;/li&gt;</span><br><span class="line">	&lt;li&gt; &lt;a href ng-click=<span class="string">"tab = 3"</span>&gt; Reviews&lt;/a&gt; &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&#123;&#123;tab&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>對ng-click directive的expression賦值，如tab = 1，所以當我們按下第一個tabs時，tab值等於1。<br>如果要讓tab的值顯示在頁面上，可以使用expression，當tab值改變，expression也會跟著改變，我們定義這叫2-way Data Binding。</p>
-<h1 id="ng-init-directive"><a href="#ng-init-directive" class="headerlink" title="ng-init directive"></a>ng-init directive</h1><p>ng-init directive允許我們在scope裡對expression賦值<br>ng-init=”tab = 1”，代表初始化值為tab = 1</p>
-<h1 id="ng-class-directive"><a href="#ng-class-directive" class="headerlink" title="ng-class directive"></a>ng-class directive</h1><p>當某個tab被選到時，ng-class directive可以動態新增class</p>
+<p>對ng-click directive的expression賦值，如tab = 1，所以當我們按下第一個tabs時，tab值等於1。<br>如果要讓tab的值顯示在頁面上，可以使用expression。當tab值改變，expression也會跟著改變，我們稱這為2-way Data Binding。</p>
+<h2 id="ng-bind-directive"><a href="#ng-bind-directive" class="headerlink" title="ng-bind directive"></a>ng-bind directive</h2><ul>
+<li>與雙大括號expression相同，可取出controller的值，並在view 顯示出來，同時也會維持資料的綁定和更新。</li>
+<li>但是ng-bind 優點多於雙大括號，可以避免AngularJS載入時雙大括號會發生殘影的問題。</li>
+</ul>
+<h2 id="ng-init-directive"><a href="#ng-init-directive" class="headerlink" title="ng-init directive"></a>ng-init directive</h2><p>ng-init directive允許我們在scope裡對expression賦值<br>ng-init=”tab = 1”，代表初始化值為tab = 1</p>
+<h2 id="ng-class-directive"><a href="#ng-class-directive" class="headerlink" title="ng-class directive"></a>ng-class directive</h2><ul>
+<li>ng-class directive 用來選擇性地套用與移除元素的css。</li>
+<li>ng-class 可以用字串或物件作為內容值，如果它是個字串，就直接套用css。<br>如果是個物件(從controller裡的函式回傳)，AngularJS 會根據物件values 為 true 或 false ,來套用或移除css。</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng-class=<span class="string">"&#123; active:tab === 1 &#125;"</span></span><br></pre></td></tr></table></figure>
 <p>設定class的name(在此為active)，之後是一個expression賦值，如果expression為true，會新增active的class。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cinomkow000068kli8ky0zo80" class="article-share-link">Partager</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cinpdr2jl000d70lixu44esdx" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
