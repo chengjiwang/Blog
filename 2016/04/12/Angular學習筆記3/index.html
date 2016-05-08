@@ -17,7 +17,7 @@ ng-model directiveng-model directive 用於輸入欄位中，會依 expression �
 ng-model directiveng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。
 1&amp;lt;input type=&quot;text&quot; ng-model=&quot;name&quot; placeholder=&quot;Enter your name&quot;&amp;gt;
 在此會將使用者輸入的內容值，儲存於name變數中">
-<meta property="og:updated_time" content="2016-05-02T13:41:26.277Z">
+<meta property="og:updated_time" content="2016-05-04T13:31:23.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular學習筆記3">
 <meta name="twitter:description" content="未完成 修改中
@@ -99,7 +99,8 @@ ng-model directiveng-model directive 用於輸入欄位中，會依 expression �
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span> <span class="attr">placeholder</span>=<span class="string">"Enter your name"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>在此會將使用者輸入的內容值，儲存於name變數中</p>
 <a id="more"></a>
-<h2 id="ng-submit-directive"><a href="#ng-submit-directive" class="headerlink" title="ng-submit directive"></a>ng-submit directive</h2><p>ng-submit允許使用者送出表單就會引發submit事件<br>ng-submit=”reviewCtrl.addReview(product)”</p>
+<h2 id="ng-submit-directive"><a href="#ng-submit-directive" class="headerlink" title="ng-submit directive"></a>ng-submit directive</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">ng-submit</span>=<span class="string">"ctrl.submit()"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"ctrl.user.username"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">ng-model</span>=<span class="string">"ctrl.user.password"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在表單裡 ng-submit 有一些優點勝過按鈕的 ng-click，可以用多種方式觸發表單的提交事件(點擊按鈕或在input欄位按enter)，而 ng-click 只在點擊按鈕才會觸發。</p>
 <p>#</p>
 <p>novalidate : Turn off default HTML validation</p>
 <p>level 4</p>
@@ -108,7 +109,7 @@ ng-model directiveng-model directive 用於輸入欄位中，會依 expression �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="cinpdr2i4000170liwlwe6xgd" class="article-share-link">Partager</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="ciny62vc5000494liwrdvthnl" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
