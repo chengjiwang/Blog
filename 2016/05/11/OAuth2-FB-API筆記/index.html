@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>OAuth2-FB-API筆記 | Chengji&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="想要知道如何使用FB API，首先要知道OAuth 2.0。
+OAuth 2.0OAuth 2.0 是一種允許Client代表Resource Owner存取資源的應用程式授權開放標準，他有4種角色。
+
+Resource Owner: 資料擁有者，也就是User。
+Client: 代表User去存取資料受保護資訊的應用程式，即APP。
+Resource Server: Client從這裡拿資料，即">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OAuth2-FB-API筆記">
+<meta property="og:url" content="http://chengjiwang.github.io/Blog/2016/05/11/OAuth2-FB-API筆記/index.html">
+<meta property="og:site_name" content="Chengji's Blog">
+<meta property="og:description" content="想要知道如何使用FB API，首先要知道OAuth 2.0。
+OAuth 2.0OAuth 2.0 是一種允許Client代表Resource Owner存取資源的應用程式授權開放標準，他有4種角色。
+
+Resource Owner: 資料擁有者，也就是User。
+Client: 代表User去存取資料受保護資訊的應用程式，即APP。
+Resource Server: Client從這裡拿資料，即">
+<meta property="og:updated_time" content="2016-05-11T08:42:04.190Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OAuth2-FB-API筆記">
+<meta name="twitter:description" content="想要知道如何使用FB API，首先要知道OAuth 2.0。
+OAuth 2.0OAuth 2.0 是一種允許Client代表Resource Owner存取資源的應用程式授權開放標準，他有4種角色。
+
+Resource Owner: 資料擁有者，也就是User。
+Client: 代表User去存取資料受保護資訊的應用程式，即APP。
+Resource Server: Client從這裡拿資料，即">
+  
+    <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">Chengji&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-OAuth2-FB-API筆記" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2016/05/11/OAuth2-FB-API筆記/" class="article-date">
+  <time datetime="2016-05-11T06:38:17.000Z" itemprop="datePublished">2016-05-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OAuth2-FB-API筆記
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>想要知道如何使用FB API，首先要知道OAuth 2.0。</p>
+<h2 id="OAuth-2-0"><a href="#OAuth-2-0" class="headerlink" title="OAuth 2.0"></a>OAuth 2.0</h2><p>OAuth 2.0 是一種允許Client代表Resource Owner存取資源的應用程式授權開放標準，他有4種角色。</p>
+<ul>
+<li>Resource Owner: 資料擁有者，也就是User。</li>
+<li>Client: 代表User去存取資料受保護資訊的應用程式，即APP。</li>
+<li>Resource Server: Client從這裡拿資料，即API<ol>
+<li>存放受保護資訊的伺服器</li>
+<li>根據token來允許受保護資訊的請求</li>
+</ol>
+</li>
+<li>Authorization Server: 在認證過Resource Owner，並在Resource Owner許可後，核發token。</li>
+</ul>
+<a id="more"></a>
+<h2 id="搭配-JavaScript-SDK-使用「Facebook-登入」的步驟"><a href="#搭配-JavaScript-SDK-使用「Facebook-登入」的步驟" class="headerlink" title="搭配 JavaScript SDK 使用「Facebook 登入」的步驟"></a>搭配 JavaScript SDK 使用「Facebook 登入」的步驟</h2><h3 id="1-檢查登入狀態-確認使用者是否已經登入您的應用程式"><a href="#1-檢查登入狀態-確認使用者是否已經登入您的應用程式" class="headerlink" title="1.檢查登入狀態: 確認使用者是否已經登入您的應用程式"></a>1.檢查登入狀態: 確認使用者是否已經登入您的應用程式</h3><p>使用 FB.getLoginStatus 來取得登入狀態，並儲存在 response 物件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FB.getLoginStatus(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    statusChangeCallback(response);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>response 的物件中的內容如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    status: <span class="string">'connected'</span>,</span><br><span class="line">    authResponse: &#123;</span><br><span class="line">        accessToken: <span class="string">'...'</span>,</span><br><span class="line">        expiresIn:<span class="string">'...'</span>,</span><br><span class="line">        signedRequest:<span class="string">'...'</span>,</span><br><span class="line">        userID:<span class="string">'...'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-如果使用者未登入，APP會向使用者要求一組資料存取權限。"><a href="#2-如果使用者未登入，APP會向使用者要求一組資料存取權限。" class="headerlink" title="2.如果使用者未登入，APP會向使用者要求一組資料存取權限。"></a>2.如果使用者未登入，APP會向使用者要求一組資料存取權限。</h3><p>藉由對 FB.login() 的呼叫，叫用「登入」對話方塊，並以 scope 參數向使用者要求權限。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FB.login(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">   <span class="comment">// handle the response</span></span><br><span class="line"> &#125;, &#123;scope: <span class="string">'public_profile,email'</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>瀏覽器會將使用者登入結果(是否已連結或取消)傳回給 APP，之後APP會將 authResponse 物件傳回至您進行 FB.login() 呼叫時所指定的Callback。</p>
+<h3 id="3-驗證用戶的身分。"><a href="#3-驗證用戶的身分。" class="headerlink" title="3.驗證用戶的身分。"></a>3.驗證用戶的身分。</h3><p>如果您使用 Facebook 的 JavaScript SDK，系統會自動執行這些檢查，因此不用執行任何動作。</p>
+<h3 id="4-儲存所產生的存取權杖。"><a href="#4-儲存所產生的存取權杖。" class="headerlink" title="4.儲存所產生的存取權杖。"></a>4.儲存所產生的存取權杖。</h3><p>Facebook JavaScript SDK 會自動在瀏覽器中處理token儲存和登入狀態追蹤，要取得token，可以使用呼叫 FB.getLoginStatus() 傳回的 response 物件。</p>
+<h3 id="5-進行-API-呼叫"><a href="#5-進行-API-呼叫" class="headerlink" title="5. 進行 API 呼叫"></a>5. 進行 API 呼叫</h3><p>在取得token後，APP就可代表使用者向API 拿取data。</p>
+<p>使用 FB.api() 呼叫API </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FB.api(<span class="string">'/me'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(response));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/" data-id="cio2hxnbs0005jclid2iywoue" class="article-share-link">Partager</a>
+      
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/#disqus_thread" class="article-comment-link">Commentaires</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">Angular學習筆記4-Firebase的AngularFire使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/Blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2016/05/11/OAuth2-FB-API筆記/">OAuth2-FB-API筆記</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/">Angular學習筆記4-Firebase的AngularFire使用</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2016/04/12/Angular學習筆記3/">Angular學習筆記3</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2016/04/11/Angular學習筆記2/">Angular學習筆記2</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2016/04/10/Angular學習筆記1/">Angular學習筆記1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Chengji Wang<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chengjisblog';
+  
+  var disqus_url = 'http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

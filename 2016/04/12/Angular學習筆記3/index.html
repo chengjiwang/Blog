@@ -5,23 +5,20 @@
   
   <title>Angular學習筆記3 | Chengji&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="未完成 修改中
-ng-model directiveng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。
+  <meta name="description" content="ng-model directiveng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。
 1&amp;lt;input type=&quot;text&quot; ng-model=&quot;name&quot; placeholder=&quot;Enter your name&quot;&amp;gt;
 在此會將使用者輸入的內容值，儲存於name變數中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular學習筆記3">
 <meta property="og:url" content="http://chengjiwang.github.io/Blog/2016/04/12/Angular學習筆記3/index.html">
 <meta property="og:site_name" content="Chengji's Blog">
-<meta property="og:description" content="未完成 修改中
-ng-model directiveng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。
+<meta property="og:description" content="ng-model directiveng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。
 1&amp;lt;input type=&quot;text&quot; ng-model=&quot;name&quot; placeholder=&quot;Enter your name&quot;&amp;gt;
 在此會將使用者輸入的內容值，儲存於name變數中">
-<meta property="og:updated_time" content="2016-05-04T13:31:23.855Z">
+<meta property="og:updated_time" content="2016-05-11T08:37:56.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular學習筆記3">
-<meta name="twitter:description" content="未完成 修改中
-ng-model directiveng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。
+<meta name="twitter:description" content="ng-model directiveng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。
 1&amp;lt;input type=&quot;text&quot; ng-model=&quot;name&quot; placeholder=&quot;Enter your name&quot;&amp;gt;
 在此會將使用者輸入的內容值，儲存於name變數中">
   
@@ -94,22 +91,31 @@ ng-model directiveng-model directive 用於輸入欄位中，會依 expression �
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>未完成 修改中</p>
-<h2 id="ng-model-directive"><a href="#ng-model-directive" class="headerlink" title="ng-model directive"></a>ng-model directive</h2><p>ng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。</p>
+        <h2 id="ng-model-directive"><a href="#ng-model-directive" class="headerlink" title="ng-model directive"></a>ng-model directive</h2><p>ng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span> <span class="attr">placeholder</span>=<span class="string">"Enter your name"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>在此會將使用者輸入的內容值，儲存於name變數中</p>
 <a id="more"></a>
 <h2 id="ng-submit-directive"><a href="#ng-submit-directive" class="headerlink" title="ng-submit directive"></a>ng-submit directive</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">ng-submit</span>=<span class="string">"ctrl.submit()"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"ctrl.user.username"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">ng-model</span>=<span class="string">"ctrl.user.password"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>在表單裡 ng-submit 有一些優點勝過按鈕的 ng-click，可以用多種方式觸發表單的提交事件(點擊按鈕或在input欄位按enter)，而 ng-click 只在點擊按鈕才會觸發。</p>
-<p>#</p>
-<p>novalidate : Turn off default HTML validation</p>
-<p>level 4</p>
-<p>ng-include 可以將檔案的名字<br>ng-include is expecting a variable with the name of the file to include.<br>To pass the name directly as a string, use single quotes (‘…’)</p>
+<h2 id="validation"><a href="#validation" class="headerlink" title="validation"></a>validation</h2><ul>
+<li><p>要在表單中新增驗證功能，首先要在表單中使用novalidate去關閉HTML的預設驗證，<br>主要是因為要使驗證有一致性。</p>
+</li>
+<li><p>如果有有必須填寫的欄位，可以使用required去限制</p>
+</li>
+</ul>
+<h3 id="表單狀態"><a href="#表單狀態" class="headerlink" title="表單狀態"></a>表單狀態</h3><ul>
+<li>$invalid : 當表單中任何驗證(required ,ng-minlength 及其他)有無效時，為true 。</li>
+<li>$valid 當表單中所有驗證都正確時，為true 。</li>
+<li>$pristine :表示表單尚未被使用者輸入或修改 。</li>
+<li>$dirty :表示使用者對欄位做了些動作 。</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="ciny62vc5000494liwrdvthnl" class="article-share-link">Partager</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="cio2hxnbo0004jcliwfka9nxb" class="article-share-link">Partager</a>
+      
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/#disqus_thread" class="article-comment-link">Commentaires</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -140,6 +146,12 @@ ng-model directiveng-model directive 用於輸入欄位中，會依 expression �
   
 </article>
 
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -151,7 +163,7 @@ ng-model directiveng-model directive 用於輸入欄位中，會依 expression �
   <div class="widget-wrap">
     <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li></ul>
     </div>
   </div>
 
@@ -161,7 +173,7 @@ ng-model directiveng-model directive 用於輸入欄位中，會依 expression �
   <div class="widget-wrap">
     <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
-      <a href="/Blog/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/Blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a>
+      <a href="/Blog/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/Blog/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a>
     </div>
   </div>
 
@@ -170,7 +182,7 @@ ng-model directiveng-model directive 用於輸入欄位中，會依 expression �
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
     </div>
   </div>
 
@@ -181,6 +193,10 @@ ng-model directiveng-model directive 用於輸入欄位中，會依 expression �
     <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/Blog/2016/05/11/OAuth2-FB-API筆記/">OAuth2-FB-API筆記</a>
+          </li>
         
           <li>
             <a href="/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/">Angular學習筆記4-Firebase的AngularFire使用</a>
@@ -196,10 +212,6 @@ ng-model directiveng-model directive 用於輸入欄位中，會依 expression �
         
           <li>
             <a href="/Blog/2016/04/10/Angular學習筆記1/">Angular學習筆記1</a>
-          </li>
-        
-          <li>
-            <a href="/Blog/2016/03/16/JavaScript-物件/">JavaScript-物件</a>
           </li>
         
       </ul>
@@ -228,6 +240,20 @@ ng-model directiveng-model directive 用於輸入欄位中，會依 expression �
   
 </nav>
     
+<script>
+  var disqus_shortname = 'chengjisblog';
+  
+  var disqus_url = 'http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
