@@ -5,16 +5,31 @@
   
   <title>JavaScript - Prototype | Chengji&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1">
+  <meta name="description" content="原型(prototype)
+物件可以從其他物件繼承屬性和行為，也就是原型繼承(prototype inheritance)，被繼承的物件就是原型。
+
+我們會把通用的屬性放在原型裡，專屬的屬性放在物件實例裡。
+
+如果我們在物件實例叫用一個屬性，會先在物件裡尋找，如果無法找到，才會到原型去尋找。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript - Prototype">
 <meta property="og:url" content="http://chengjiwang.github.io/Blog/2016/05/27/JavaScript-prototype/index.html">
 <meta property="og:site_name" content="Chengji's Blog">
-<meta property="og:description" content="1">
-<meta property="og:updated_time" content="2016-05-27T13:33:05.018Z">
+<meta property="og:description" content="原型(prototype)
+物件可以從其他物件繼承屬性和行為，也就是原型繼承(prototype inheritance)，被繼承的物件就是原型。
+
+我們會把通用的屬性放在原型裡，專屬的屬性放在物件實例裡。
+
+如果我們在物件實例叫用一個屬性，會先在物件裡尋找，如果無法找到，才會到原型去尋找。">
+<meta property="og:updated_time" content="2016-05-28T14:07:39.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript - Prototype">
-<meta name="twitter:description" content="1">
+<meta name="twitter:description" content="原型(prototype)
+物件可以從其他物件繼承屬性和行為，也就是原型繼承(prototype inheritance)，被繼承的物件就是原型。
+
+我們會把通用的屬性放在原型裡，專屬的屬性放在物件實例裡。
+
+如果我們在物件實例叫用一個屬性，會先在物件裡尋找，如果無法找到，才會到原型去尋找。">
   
     <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
   
@@ -54,7 +69,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
@@ -85,11 +100,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>以下程式碼每個物件都有bark方法的一個副本，會造成資源影響，要解決這個問題可以使用原型。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name, breed, weight</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.breed = breed;</span><br><span class="line">	<span class="keyword">this</span>.weight = weight;</span><br><span class="line">	<span class="keyword">this</span>.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span>.weight &gt; <span class="number">25</span>) &#123;</span><br><span class="line">			alert(<span class="keyword">this</span>.name + <span class="string">" says Woof!"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			alert(<span class="keyword">this</span>.name + <span class="string">" says Yip!"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fido = <span class="keyword">new</span> Dog(<span class="string">"Fido"</span>, <span class="string">"Mixed"</span>, <span class="number">38</span>);</span><br><span class="line"><span class="keyword">var</span> fluffy = <span class="keyword">new</span> Dog(<span class="string">"Fluffy"</span>, <span class="string">"Poodle"</span>, <span class="number">30</span>);</span><br><span class="line"><span class="keyword">var</span> spot = <span class="keyword">new</span> Dog(<span class="string">"Spot"</span>, <span class="string">"Chihuahua"</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="原型-prototype"><a href="#原型-prototype" class="headerlink" title="原型(prototype)"></a>原型(prototype)</h2><ul>
+        <h2 id="原型-prototype"><a href="#原型-prototype" class="headerlink" title="原型(prototype)"></a>原型(prototype)</h2><ul>
 <li><p>物件可以從其他物件繼承屬性和行為，也就是原型繼承(prototype inheritance)，被繼承的物件就是原型。</p>
 </li>
 <li><p>我們會把通用的屬性放在原型裡，專屬的屬性放在物件實例裡。</p>
@@ -97,26 +108,32 @@
 <li><p>如果我們在物件實例叫用一個屬性，會先在物件裡尋找，如果無法找到，才會到原型去尋找。</p>
 </li>
 </ul>
-<h2 id="設置原型"><a href="#設置原型" class="headerlink" title="設置原型"></a>設置原型</h2><p>透過建構程序的prototype屬性來存取原型</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name, breed, weight</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.breed = breed;</span><br><span class="line">	<span class="keyword">this</span>.weight = weight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>.weight &gt; <span class="number">25</span>) &#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name + <span class="string">" says Woof!"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name + <span class="string">" says Yip!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fido = <span class="keyword">new</span> Dog(<span class="string">"Fido"</span>, <span class="string">"Mixed"</span>, <span class="number">38</span>);</span><br><span class="line"><span class="keyword">var</span> fluffy = <span class="keyword">new</span> Dog(<span class="string">"Fluffy"</span>, <span class="string">"Poodle"</span>, <span class="number">30</span>);</span><br><span class="line"><span class="keyword">var</span> spot = <span class="keyword">new</span> Dog(<span class="string">"Spot"</span>, <span class="string">"Chihuahua"</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="覆寫原型"><a href="#覆寫原型" class="headerlink" title="覆寫原型"></a>覆寫原型</h2><ul>
-<li>雖然我們從原型繼承某些屬性，但我們還是可以覆寫屬性，只要在物件裡新增屬性即可。</li>
-<li>只要我們新增一個屬性到原型，任何繼承該原型物件都可以使用該屬性。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spot.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" says WOOF!"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>以下程式碼每個物件都有bark方法的一個副本，會造成資源影響，要解決這個問題可以使用原型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name, breed, weight</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.breed = breed;</span><br><span class="line">	<span class="keyword">this</span>.weight = weight;</span><br><span class="line">	<span class="keyword">this</span>.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span>.weight &gt; <span class="number">25</span>) &#123;</span><br><span class="line">			alert(<span class="keyword">this</span>.name + <span class="string">" says Woof!"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			alert(<span class="keyword">this</span>.name + <span class="string">" says Yip!"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fido = <span class="keyword">new</span> Dog(<span class="string">"Fido"</span>, <span class="string">"Mixed"</span>, <span class="number">38</span>);</span><br><span class="line"><span class="keyword">var</span> fluffy = <span class="keyword">new</span> Dog(<span class="string">"Fluffy"</span>, <span class="string">"Poodle"</span>, <span class="number">30</span>);</span><br><span class="line"><span class="keyword">var</span> spot = <span class="keyword">new</span> Dog(<span class="string">"Spot"</span>, <span class="string">"Chihuahua"</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="設置原型"><a href="#設置原型" class="headerlink" title="設置原型"></a>設置原型</h2><ul>
+<li>透過建構程序的prototype屬性來存取原型</li>
+<li>只要我們新增一個屬性到原型，任何繼承該原型物件都可以使用該屬性。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name, breed, weight</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.breed = breed;</span><br><span class="line">	<span class="keyword">this</span>.weight = weight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>.weight &gt; <span class="number">25</span>) &#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name + <span class="string">" says Woof!"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name + <span class="string">" says Yip!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fido = <span class="keyword">new</span> Dog(<span class="string">"Fido"</span>, <span class="string">"Mixed"</span>, <span class="number">38</span>);</span><br><span class="line"><span class="keyword">var</span> fluffy = <span class="keyword">new</span> Dog(<span class="string">"Fluffy"</span>, <span class="string">"Poodle"</span>, <span class="number">30</span>);</span><br><span class="line"><span class="keyword">var</span> spot = <span class="keyword">new</span> Dog(<span class="string">"Spot"</span>, <span class="string">"Chihuahua"</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h2 id="覆寫原型"><a href="#覆寫原型" class="headerlink" title="覆寫原型"></a>覆寫原型</h2><p>雖然我們從原型繼承某些屬性，但我們還是可以覆寫屬性，只要在物件裡新增屬性即可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spot.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" says WOOF!"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty"></a>hasOwnProperty</h2><p>物件的 hasOwnProperty 方法可以判斷屬性是位於物件(回傳true)或是原型(回傳false)。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Dog.prototype.species= <span class="string">'canine'</span>;</span><br><span class="line">spot.hasOwnProperty(<span class="string">"species"</span>); <span class="comment">//回傳false，因為species定義於原型，而非spot物件</span></span><br></pre></td></tr></table></figure>
 <h2 id="原型鏈-chain-of-prototypes"><a href="#原型鏈-chain-of-prototypes" class="headerlink" title="原型鏈(chain of prototypes)"></a>原型鏈(chain of prototypes)</h2><ul>
 <li>一個物件並非只能從原型繼承屬性，也可以從原型所構成的原型鏈繼承屬性。</li>
-<li>原型鏈就是一個原型繼承另一個原型(在此為 Dog prototype)。</li>
+<li>原型鏈就是一個原型繼承自另一個原型(在此為 Dog prototype)。</li>
 </ul>
+<h3 id="建立繼承自Dog-prototype-的原型"><a href="#建立繼承自Dog-prototype-的原型" class="headerlink" title="建立繼承自Dog prototype 的原型"></a>建立繼承自Dog prototype 的原型</h3><p>新增一個建構程序，將它的prototype屬性設定為一個新的物件實例，並設定constructor屬性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ShowDog</span>(<span class="params">name, breed, weight, handler</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.breed = breed;</span><br><span class="line">	<span class="keyword">this</span>.weight = weight;</span><br><span class="line">	<span class="keyword">this</span>.handler = handler;</span><br><span class="line">&#125;</span><br><span class="line">ShowDog.prototype = <span class="keyword">new</span> Dog();</span><br><span class="line">ShowDog.prototype.constructor = ShowDog;</span><br></pre></td></tr></table></figure></p>
+<p>之後就可以對ShowDog.prototype 新增一些屬性，和建立ShowDog的物件實例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ShowDog.prototype.bait = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"Bait"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> scotty = <span class="keyword">new</span> ShowDog(<span class="string">"Scotty"</span>, <span class="string">"Scottish Terrier"</span>, <span class="number">15</span>, <span class="string">"Cookie"</span>);</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/" data-id="ciopjuf5u0004fgliyk0gsj0l" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/" data-id="cior82ilx0005mslixlbk1c4k" class="article-share-link">Delen</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/#disqus_thread" class="article-comment-link">Commentaren</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
@@ -129,8 +146,8 @@
   
   
     <a href="/Blog/2016/05/25/JavaScript-Scope/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript - Hoisting</div>
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">JavaScript - Scope &amp; Hoisting</div>
     </a>
   
 </nav>
@@ -153,7 +170,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">標籤</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li></ul>
     </div>
@@ -163,7 +180,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">標籤雲</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/Blog/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/Blog/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a>
     </div>
@@ -172,7 +189,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">彙整</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
     </div>
@@ -182,7 +199,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
@@ -191,7 +208,7 @@
           </li>
         
           <li>
-            <a href="/Blog/2016/05/25/JavaScript-Scope/">JavaScript - Hoisting</a>
+            <a href="/Blog/2016/05/25/JavaScript-Scope/">JavaScript - Scope &amp; Hoisting</a>
           </li>
         
           <li>
