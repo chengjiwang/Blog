@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React 學習筆記 | Chengji&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="React是一個 JavaScript 函式庫，用來處理view 的部分。它定義畫面如何變化，而不是去操作DOM。
+JSX
+JSX 讓我們使用類似HTML的語法去建立 React 樹節點。
+JSX 是一個輔助的語法，幫助我們開發，執行前會被轉譯成 JavaScript。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 學習筆記">
+<meta property="og:url" content="http://chengjiwang.github.io/Blog/2016/06/04/React1/index.html">
+<meta property="og:site_name" content="Chengji's Blog">
+<meta property="og:description" content="React是一個 JavaScript 函式庫，用來處理view 的部分。它定義畫面如何變化，而不是去操作DOM。
+JSX
+JSX 讓我們使用類似HTML的語法去建立 React 樹節點。
+JSX 是一個輔助的語法，幫助我們開發，執行前會被轉譯成 JavaScript。">
+<meta property="og:updated_time" content="2016-06-04T14:03:37.815Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React 學習筆記">
+<meta name="twitter:description" content="React是一個 JavaScript 函式庫，用來處理view 的部分。它定義畫面如何變化，而不是去操作DOM。
+JSX
+JSX 讓我們使用類似HTML的語法去建立 React 樹節點。
+JSX 是一個輔助的語法，幫助我們開發，執行前會被轉譯成 JavaScript。">
+  
+    <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">Chengji&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-React1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2016/06/04/React1/" class="article-date">
+  <time datetime="2016-06-04T05:01:41.000Z" itemprop="datePublished">2016-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React 學習筆記
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React是一個 JavaScript 函式庫，用來處理view 的部分。<br>它定義畫面如何變化，而不是去操作DOM。</p>
+<h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h1><ul>
+<li>JSX 讓我們使用類似HTML的語法去建立 React 樹節點。</li>
+<li>JSX 是一個輔助的語法，幫助我們開發，執行前會被轉譯成 JavaScript。</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//沒有使用 JSX</span></span><br><span class="line">React.createElement(<span class="string">'a'</span>, &#123;href: <span class="string">'https://facebook.github.io/react/'</span>&#125;, <span class="string">'Hello!'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//有使用 JSX</span></span><br><span class="line">&lt;a href=<span class="string">"https://facebook.github.io/react/"</span>&gt;Hello!&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="HTML-Tags-vs-React-Components"><a href="#HTML-Tags-vs-React-Components" class="headerlink" title="HTML Tags vs. React Components"></a>HTML Tags vs. React Components</h4><ul>
+<li>React 可以 render HTML tags 和 React components。</li>
+<li>在JSX 裡使用lower case命名(HTML tags)或 upper case命名(React components) 去做區分。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDivElement = &lt;div className="foo" /&gt;;</span><br><span class="line">ReactDOM.render(myDivElement, document.getElementById('example'));</span><br></pre></td></tr></table></figure>
+<h3 id="JavaScript-Expressions"><a href="#JavaScript-Expressions" class="headerlink" title="JavaScript Expressions"></a>JavaScript Expressions</h3><h4 id="1-Attribute-Expressions"><a href="#1-Attribute-Expressions" class="headerlink" title="1.Attribute Expressions"></a>1.Attribute Expressions</h4><p>使用JavaScript expression 設定屬性的值，用{  }取代 ‘ ‘</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &lt;Person name=&#123;window.isLoggedIn ? window.name : ''&#125; /&gt;;</span><br></pre></td></tr></table></figure>
+<h4 id="2-Boolean-Attributes"><a href="#2-Boolean-Attributes" class="headerlink" title="2.Boolean Attributes"></a>2.Boolean Attributes</h4><p>若省略屬性的值，JSX 會將屬性的值以 true 對待。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// These two are equivalent in JSX for disabling a button</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">disabled</span> /&gt;</span>;</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">disabled</span>=<span class="string">&#123;true&#125;</span> /&gt;</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="props"><a href="#props" class="headerlink" title="props"></a>props</h1><ul>
+<li>使用 props 可以將外面的資料傳入元件，props透過 JSX 語法裡的屬性來傳遞。</li>
+<li>元件透過 this.props 取得資料。</li>
+<li>不要在元件內部修改 props。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/" data-id="cip0qu2dk0006jcli92j1gsy0" class="article-share-link">Delen</a>
+      
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/#disqus_thread" class="article-comment-link">Commentaren</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/Blog/2016/05/27/JavaScript-prototype/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">JavaScript - Prototype</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/React/">React</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/Blog/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/Blog/tags/React/" style="font-size: 10px;">React</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2016/06/04/React1/">React 學習筆記</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2016/05/27/JavaScript-prototype/">JavaScript - Prototype</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2016/05/25/JavaScript-Scope/">JavaScript - Scope &amp; Hoisting</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2016/05/11/OAuth2-FB-API筆記/">OAuth 2.0 - FB API筆記</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/">Angular學習筆記 4 - 如何使用AngularFire</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Chengji Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chengjisblog';
+  
+  var disqus_url = 'http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>
