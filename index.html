@@ -64,6 +64,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript-Closure" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2016/06/15/JavaScript-Closure/" class="article-date">
+  <time datetime="2016-06-15T14:08:44.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2016/06/15/JavaScript-Closure/">JavaScript-Closure</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>js 使用語彙scope，這表示函式執行時使用的變數scope是函式定義生效的scope，而非調用時的變數scope</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global scope"</span>; <span class="comment">// A global variable</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope = <span class="string">"local scope"</span>; <span class="comment">// A local variable</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> scope; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> f();</span><br><span class="line">&#125;</span><br><span class="line">checkscope() <span class="comment">// =&gt; "local scope"</span></span><br></pre></td></tr></table></figure>
+<p>上面的checkscope() 宣告區域變數，定義並調用一個回傳該變數值的函式，根據語彙scope 我們會檢視最接近的外層函式的變數值<br>所以會回傳”local scope”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global scope"</span>; <span class="comment">// A global variable</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope = <span class="string">"local scope"</span>; <span class="comment">// A local variable</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">		<span class="keyword">return</span> scope; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line">checkscope()() <span class="comment">// What does this return?</span></span><br></pre></td></tr></table></figure>
+<p>這次我們改寫checkscope() ，直接回傳了函式f 本身。</p>
+<p>根據語彙scope規則: 函式執行時使用的 scope chain ，是定義時生效的 scope chain 。</p>
+<p>f() 定義時的scope chain，變數是繫結至 “local scope”，就算函式 f() 被執行時仍然有效。</p>
+<p>所以會回傳 “local scope” 而不是 “global scope”。</p>
+<p>由上述可知 Closure 會捕抓它們外層函式(即它們定義之處)的區域變數之繫結。</p>
+<h2 id="參考文件："><a href="#參考文件：" class="headerlink" title="參考文件："></a>參考文件：</h2><ol>
+<li>JavaScript: The Definitive Guide ，By David Flanagan</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/" data-id="cipgyf4xg0006kolixxomzxy0" class="article-share-link">Share</a>
+      
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Redux筆記" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Blog/2016/06/14/Redux筆記/" class="article-date">
@@ -102,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/" data-id="cipfj4o0e000ko4lii1tjcwb3" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/" data-id="cipgyf4yf000hkolisvbs91cf" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -153,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/" data-id="cipfj4o13000ro4li06igmfzw" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/" data-id="cipgyf4xn0009kolimhuwm9lu" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -205,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/" data-id="cipfj4nzu000do4lintbw74kg" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/" data-id="cipgyf4xc0004koliqpl2pp98" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -254,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/" data-id="cipfj4nza0009o4li1d2rr22p" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/" data-id="cipgyf4xk0008kolidwvn936c" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -310,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/" data-id="cipfj4nzf000ao4li4eqeacn8" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/" data-id="cipgyf4xv000bkoliwy05lkle" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -356,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="cipfj4nzp000co4liwmgmchpv" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="cipgyf4ym000jkoli9hp3htpy" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -403,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="cipfj4nxr0000o4liujuucidl" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="cipgyf4yr000mkoli9v5uux3d" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -450,7 +502,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cipfj4ny10001o4liq2ynvkcv" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cipgyf4x90003kolibunsq6ea" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -498,7 +550,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/" data-id="cipfj4nyb0003o4liqty3a1k8" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/" data-id="cipgyf4vy0000koliuxp6r4sa" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -512,53 +564,11 @@
 
 
   
-    <article id="post-JavaScript-物件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Blog/2016/03/16/JavaScript-物件/" class="article-date">
-  <time datetime="2016-03-16T12:59:50.447Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2016/03/16/JavaScript-物件/">JavaScript-物件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>物件是屬性(property)所構成的一個集合。每個屬性皆具有一個名稱(name)與一個值(value)。</p>
-<h1 id="一-建立物件字面-object-literal"><a href="#一-建立物件字面-object-literal" class="headerlink" title="一.建立物件字面(object literal)"></a>一.建立物件字面(object literal)</h1><p>為物件加上一個變數宣告，然後在{ }裡加入屬性，屬性間需以逗號分開，最後一個屬性不需要逗號。</p>
-        
-          <p class="article-more-link">
-            <a href="/Blog/2016/03/16/JavaScript-物件/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/03/16/JavaScript-物件/" data-id="cipfj4o04000go4li0ef1mztn" class="article-share-link">Share</a>
-      
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/03/16/JavaScript-物件/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
 
 
-  
-
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/Blog/page/2/">2</a><a class="extend next" rel="next" href="/Blog/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -580,7 +590,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/Blog/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/Blog/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/Blog/tags/React/" style="font-size: 13.33px;">React</a>
+      <a href="/Blog/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/Blog/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/Blog/tags/React/" style="font-size: 15px;">React</a>
     </div>
   </div>
 
@@ -602,6 +612,10 @@
       <ul>
         
           <li>
+            <a href="/Blog/2016/06/15/JavaScript-Closure/">JavaScript-Closure</a>
+          </li>
+        
+          <li>
             <a href="/Blog/2016/06/14/Redux筆記/">Redux 筆記</a>
           </li>
         
@@ -615,10 +629,6 @@
         
           <li>
             <a href="/Blog/2016/05/25/JavaScript-Scope/">JavaScript - Scope &amp; Hoisting</a>
-          </li>
-        
-          <li>
-            <a href="/Blog/2016/05/11/OAuth2-FB-API筆記/">OAuth 2.0 - FB API筆記</a>
           </li>
         
       </ul>
