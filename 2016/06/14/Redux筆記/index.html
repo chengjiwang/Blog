@@ -15,7 +15,7 @@
 <meta property="og:description" content="三大原則1.唯一真相來源(Single source of truth)整個應用程式的 state，被儲存在一個樹狀物件放在唯一的 store 裡面。
 2.State 是唯讀的(State is read-only)改變 state 的唯一的方式是發出一個 action，也就是一個描述發生什麼事的物件。
 3.變更被寫成 pure functions (Changes are made with p">
-<meta property="og:updated_time" content="2016-06-14T14:19:55.041Z">
+<meta property="og:updated_time" content="2016-06-23T13:32:45.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redux 筆記">
 <meta name="twitter:description" content="三大原則1.唯一真相來源(Single source of truth)整個應用程式的 state，被儲存在一個樹狀物件放在唯一的 store 裡面。
@@ -108,16 +108,21 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span></span><br><span class="line">&#123;</span><br><span class="line">  type: ADD_TODO,</span><br><span class="line">  text: <span class="string">'Build my first Redux app'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Action-Creators"><a href="#Action-Creators" class="headerlink" title="Action Creators"></a>Action Creators</h2><p>Action creators 是一個產生 actions 的 functions，它會回傳一個 action 物件。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: ADD_TODO,</span><br><span class="line">    text</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用dispatch 將action 傳給Reducers<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch(addTodo(text))</span><br></pre></td></tr></table></figure></p>
 <h2 id="Reducers"><a href="#Reducers" class="headerlink" title="Reducers"></a>Reducers</h2><ul>
-<li>reducer 是一個 pure function，會接收 原本的狀態 (state)，與 改變原本狀態的參數 (Action)</li>
-<li>最終一定會回傳 改變後的狀態 (state)</li>
-<li>reducer 是一個 pure function，它接收先前的 state 和一個 action，然後回傳下一個 state。</li>
+<li>指定應用程式的 state 要如何去應對改變。</li>
+<li>reducer 是一個 pure function，會接收 原本的狀態 (state)，與 改變原本狀態的參數 (Action)，然後回傳改變後的狀態 (state)。</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">visibilityFilter</span>(<span class="params">state = SHOW_ALL, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> SET_VISIBILITY_FILTER:</span><br><span class="line">      <span class="keyword">return</span> action.filter</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><ul>
+<li>Redux 應用程式中將只會有一個 store ，它是由所有的 Reducer (與 Middleware) 所組成 ，掌管應用程式狀態</li>
+</ul>
+<h3 id="建立-store"><a href="#建立-store" class="headerlink" title="建立 store"></a>建立 store</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="keyword">import</span> todoApp <span class="keyword">from</span> <span class="string">'./reducers'</span></span><br><span class="line"><span class="keyword">let</span> store = createStore(todoApp)</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/" data-id="cipgyf4yf000hkolisvbs91cf" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/" data-id="cipscgpn3000e64lip12otb1v" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/#disqus_thread" class="article-comment-link">Comments</a>
       

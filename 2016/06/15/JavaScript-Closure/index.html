@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Chengji's Blog">
 <meta property="og:description" content="js 使用語彙scope，這表示函式執行時使用的變數scope是函式定義生效的scope，而非調用時的變數scope
 123456789var scope = &quot;global scope&quot;; // A global variablefunction checkscope() &amp;#123;	var scope = &quot;local scope&quot;; // A local variable	function">
-<meta property="og:updated_time" content="2016-06-15T14:32:01.539Z">
+<meta property="og:updated_time" content="2016-06-23T13:31:23.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript-Closure">
 <meta name="twitter:description" content="js 使用語彙scope，這表示函式執行時使用的變數scope是函式定義生效的scope，而非調用時的變數scope
@@ -90,6 +90,7 @@
       
         <p>js 使用語彙scope，這表示函式執行時使用的變數scope是函式定義生效的scope，而非調用時的變數scope</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global scope"</span>; <span class="comment">// A global variable</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope = <span class="string">"local scope"</span>; <span class="comment">// A local variable</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> scope; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> f();</span><br><span class="line">&#125;</span><br><span class="line">checkscope() <span class="comment">// =&gt; "local scope"</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>上面的checkscope() 宣告區域變數，定義並調用一個回傳該變數值的函式，根據語彙scope 我們會檢視最接近的外層函式的變數值<br>所以會回傳”local scope”</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global scope"</span>; <span class="comment">// A global variable</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope = <span class="string">"local scope"</span>; <span class="comment">// A local variable</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">		<span class="keyword">return</span> scope; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line">checkscope()() <span class="comment">// What does this return?</span></span><br></pre></td></tr></table></figure>
 <p>這次我們改寫checkscope() ，直接回傳了函式f 本身。</p>
@@ -104,7 +105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/" data-id="cipgyf4xg0006kolixxomzxy0" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/" data-id="cipscgpmj000764licut9qth7" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/#disqus_thread" class="article-comment-link">Comments</a>
       

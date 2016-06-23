@@ -88,21 +88,15 @@
       
         <p>js 使用語彙scope，這表示函式執行時使用的變數scope是函式定義生效的scope，而非調用時的變數scope</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global scope"</span>; <span class="comment">// A global variable</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope = <span class="string">"local scope"</span>; <span class="comment">// A local variable</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> scope; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> f();</span><br><span class="line">&#125;</span><br><span class="line">checkscope() <span class="comment">// =&gt; "local scope"</span></span><br></pre></td></tr></table></figure>
-<p>上面的checkscope() 宣告區域變數，定義並調用一個回傳該變數值的函式，根據語彙scope 我們會檢視最接近的外層函式的變數值<br>所以會回傳”local scope”</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global scope"</span>; <span class="comment">// A global variable</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope = <span class="string">"local scope"</span>; <span class="comment">// A local variable</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">		<span class="keyword">return</span> scope; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line">checkscope()() <span class="comment">// What does this return?</span></span><br></pre></td></tr></table></figure>
-<p>這次我們改寫checkscope() ，直接回傳了函式f 本身。</p>
-<p>根據語彙scope規則: 函式執行時使用的 scope chain ，是定義時生效的 scope chain 。</p>
-<p>f() 定義時的scope chain，變數是繫結至 “local scope”，就算函式 f() 被執行時仍然有效。</p>
-<p>所以會回傳 “local scope” 而不是 “global scope”。</p>
-<p>由上述可知 Closure 會捕抓它們外層函式(即它們定義之處)的區域變數之繫結。</p>
-<h2 id="參考文件："><a href="#參考文件：" class="headerlink" title="參考文件："></a>參考文件：</h2><ol>
-<li>JavaScript: The Definitive Guide ，By David Flanagan</li>
-</ol>
-
+        
+          <p class="article-more-link">
+            <a href="/Blog/2016/06/15/JavaScript-Closure/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/" data-id="cipgyf4xg0006kolixxomzxy0" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/" data-id="cipscgpmj000764licut9qth7" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -154,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/" data-id="cipgyf4yf000hkolisvbs91cf" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/" data-id="cipscgpn3000e64lip12otb1v" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -205,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/" data-id="cipgyf4xn0009kolimhuwm9lu" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/" data-id="cipscgpnd000i64li5in3j568" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -257,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/" data-id="cipgyf4xc0004koliqpl2pp98" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/" data-id="cipscgpmj000964liyvx3l99b" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -306,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/" data-id="cipgyf4xk0008kolidwvn936c" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/" data-id="cipscgpmt000c64li2wffunip" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -362,7 +356,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/" data-id="cipgyf4xv000bkoliwy05lkle" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/" data-id="cipscgpnd000j64liu0d108nl" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -408,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="cipgyf4ym000jkoli9hp3htpy" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="cipscgplz000164lip3z680zt" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -455,7 +449,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="cipgyf4yr000mkoli9v5uux3d" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="cipscgpm9000564lia9n8iadx" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -502,7 +496,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cipgyf4x90003kolibunsq6ea" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cipscgpm9000464li5wwz5a5n" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -550,7 +544,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/" data-id="cipgyf4vy0000koliuxp6r4sa" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/" data-id="cipscgplz000264ligm4v7vo1" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/#disqus_thread" class="article-comment-link">Comments</a>
       
