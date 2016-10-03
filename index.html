@@ -64,6 +64,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript-ES6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/03/JavaScript-ES6/" class="article-date">
+  <time datetime="2016-10-03T08:22:09.000Z" itemprop="datePublished">2016-10-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2016/10/03/JavaScript-ES6/">JavaScript-ES6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-let-amp-const"><a href="#1-let-amp-const" class="headerlink" title="1. let &amp; const"></a>1. let &amp; const</h1><h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><ul>
+<li><p>let的變數只在其宣告的block內有效。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> a= <span class="number">10</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> b= <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a <span class="comment">// ReferenceError: a is not defined.</span></span><br><span class="line">b <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不存在hoisting<br>let不像var那樣會發生提升現象。</p>
+</li>
+<li><p>let 在同一個scope內，不能重複宣告，但可以重新赋值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> b = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">let</span> b = <span class="number">5</span>; <span class="comment">//TypeError</span></span><br><span class="line">  b = <span class="number">7</span> ; <span class="comment">// b=7</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/Blog/2016/10/03/JavaScript-ES6/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/10/03/JavaScript-ES6/" data-id="cittvtwwm0008ywliw0i4l2jk" class="article-share-link">Share</a>
+      
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/10/03/JavaScript-ES6/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript-Closure" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Blog/2016/06/15/JavaScript-Closure/" class="article-date">
@@ -96,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/" data-id="cipscgpmj000764licut9qth7" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/" data-id="cittvtwwc0004ywlirg6qt9i7" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -148,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/" data-id="cipscgpn3000e64lip12otb1v" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/" data-id="cittvtwxf000gywliwlzxsz2v" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -199,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/" data-id="cipscgpnd000i64li5in3j568" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/" data-id="cittvtwyt000pywligb3amyde" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -251,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/" data-id="cipscgpmj000964liyvx3l99b" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/" data-id="cittvtwwh0006ywli38yw1fqi" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -300,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/" data-id="cipscgpmt000c64li2wffunip" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/" data-id="cittvtwwp0009ywliv8nma4ed" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -356,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/" data-id="cipscgpnd000j64liu0d108nl" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/" data-id="cittvtwyy000rywlitsahql9l" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -402,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="cipscgplz000164lip3z680zt" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="cittvtwyq000oywli63dszbj6" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -449,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="cipscgpm9000564lia9n8iadx" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="cittvtwwx000bywlicc9tnfx2" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -496,57 +550,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cipscgpm9000464li5wwz5a5n" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="cittvtww60003ywlikpggz2mm" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Angular學習筆記1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Blog/2016/04/10/Angular學習筆記1/" class="article-date">
-  <time datetime="2016-04-10T01:54:41.000Z" itemprop="datePublished">2016-04-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2016/04/10/Angular學習筆記1/">Angular學習筆記1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h2><ul>
-<li>AngularJS是透過directives在HTML裡增加行為(behavior)。Directive是HTML標籤中的一個標記，<br>它使angular知道如何去調用JavaScript code。</li>
-<li>如:當我們想要調用一個controller function，我們可以在HTML標籤裡增加一個ng-controller的屬性，並設定其值為function的名稱，就可以呼叫該function。</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/Blog/2016/04/10/Angular學習筆記1/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/" data-id="cipscgplz000264ligm4v7vo1" class="article-share-link">Share</a>
-      
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/10/Angular學習筆記1/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -584,7 +590,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/Blog/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/Blog/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/Blog/tags/React/" style="font-size: 15px;">React</a>
+      <a href="/Blog/tags/Angular/" style="font-size: 16.67px;">Angular</a> <a href="/Blog/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/Blog/tags/React/" style="font-size: 13.33px;">React</a>
     </div>
   </div>
 
@@ -593,7 +599,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
     </div>
   </div>
 
@@ -604,6 +610,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/Blog/2016/10/03/JavaScript-ES6/">JavaScript-ES6</a>
+          </li>
         
           <li>
             <a href="/Blog/2016/06/15/JavaScript-Closure/">JavaScript-Closure</a>
@@ -619,10 +629,6 @@
         
           <li>
             <a href="/Blog/2016/05/27/JavaScript-prototype/">JavaScript - Prototype</a>
-          </li>
-        
-          <li>
-            <a href="/Blog/2016/05/25/JavaScript-Scope/">JavaScript - Scope &amp; Hoisting</a>
           </li>
         
       </ul>
