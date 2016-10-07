@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
@@ -64,9 +64,57 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-JavaScript-ES6" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript-ES6-base2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Blog/2016/10/03/JavaScript-ES6/" class="article-date">
+    <a href="/Blog/2016/10/07/JavaScript-ES6-base2/" class="article-date">
+  <time datetime="2016-10-07T06:49:28.000Z" itemprop="datePublished">2016-10-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2016/10/07/JavaScript-ES6-base2/">JavaScript-ES6基本介紹(下)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="4-1-Arrays"><a href="#4-1-Arrays" class="headerlink" title="4.1 - Arrays"></a>4.1 - Arrays</h1><h2 id="array-destructuring"><a href="#array-destructuring" class="headerlink" title="array destructuring"></a>array destructuring</h2><ul>
+<li>使用 destructuring 將陣列裡多個值分配到區域變數。</li>
+<li>可以將 destructuring 和 rest parameters combine 在一起 </li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/Blog/2016/10/07/JavaScript-ES6-base2/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/" data-id="citztw6f10003lklic72jatnp" class="article-share-link">Delen</a>
+      
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/#disqus_thread" class="article-comment-link">Commentaren</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript-ES6-base1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2016/10/03/JavaScript-ES6-base1/" class="article-date">
   <time datetime="2016-10-03T08:22:09.000Z" itemprop="datePublished">2016-10-03</time>
 </a>
     
@@ -78,7 +126,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2016/10/03/JavaScript-ES6/">JavaScript-ES6</a>
+      <a class="article-title" href="/Blog/2016/10/03/JavaScript-ES6-base1/">JavaScript-ES6基本介紹(上)</a>
     </h1>
   
 
@@ -86,27 +134,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-let-amp-const"><a href="#1-let-amp-const" class="headerlink" title="1. let &amp; const"></a>1. let &amp; const</h1><h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><ul>
-<li><p>let的變數只在其宣告的block內有效。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> a= <span class="number">10</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> b= <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a <span class="comment">// ReferenceError: a is not defined.</span></span><br><span class="line">b <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不存在hoisting<br>let不像var那樣會發生提升現象。</p>
-</li>
-<li><p>let 在同一個scope內，不能重複宣告，但可以重新赋值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> b = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">let</span> b = <span class="number">5</span>; <span class="comment">//TypeError</span></span><br><span class="line">  b = <span class="number">7</span> ; <span class="comment">// b=7</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+        <h1 id="1-let-amp-const"><a href="#1-let-amp-const" class="headerlink" title="1. let &amp; const"></a>1. let &amp; const</h1>
         
           <p class="article-more-link">
-            <a href="/Blog/2016/10/03/JavaScript-ES6/#more">Read More</a>
+            <a href="/Blog/2016/10/03/JavaScript-ES6-base1/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/10/03/JavaScript-ES6/" data-id="citz2ofpz000uz4licjk05ac8" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/10/03/JavaScript-ES6-base1/" data-id="citztw6fe000blklipls1xxft" class="article-share-link">Delen</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/10/03/JavaScript-ES6/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/10/03/JavaScript-ES6-base1/#disqus_thread" class="article-comment-link">Commentaren</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
@@ -150,9 +189,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/" data-id="citz2ofn10002z4li5btwvs6h" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/" data-id="citztw6f40006lklijwvd1paq" class="article-share-link">Delen</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/15/JavaScript-Closure/#disqus_thread" class="article-comment-link">Commentaren</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
@@ -202,9 +241,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/" data-id="citz2ofog000jz4li0kj9tgcq" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/" data-id="citztw6fo000elklidu60glwg" class="article-share-link">Delen</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/14/Redux筆記/#disqus_thread" class="article-comment-link">Commentaren</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/React/">React</a></li></ul>
@@ -253,9 +292,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/" data-id="citz2ofoa000gz4li0z0j0j1d" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/" data-id="citztw6hc000slklivdmrn2op" class="article-share-link">Delen</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/06/04/React1/#disqus_thread" class="article-comment-link">Commentaren</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/React/">React</a></li></ul>
@@ -305,9 +344,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/" data-id="citz2ofnj0007z4lie8659d08" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/" data-id="citztw6fo000dlkli2jnh1yrr" class="article-share-link">Delen</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/27/JavaScript-prototype/#disqus_thread" class="article-comment-link">Commentaren</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
@@ -354,9 +393,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/" data-id="citz2ofnu000bz4limd3dhgfn" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/" data-id="citztw6fe0008lklia9bx3ppb" class="article-share-link">Delen</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/25/JavaScript-Scope/#disqus_thread" class="article-comment-link">Commentaren</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
@@ -410,9 +449,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/" data-id="citz2ofo5000ez4liu3evhac7" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/" data-id="citztw6hh000vlkli2eb6qp1l" class="article-share-link">Delen</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/05/11/OAuth2-FB-API筆記/#disqus_thread" class="article-comment-link">Commentaren</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li></ul>
@@ -456,9 +495,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="citz2ofmv0001z4lizkofxr78" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" data-id="citztw6he000tlklireduoola" class="article-share-link">Delen</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/#disqus_thread" class="article-comment-link">Commentaren</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -503,56 +542,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="citz2ofno0009z4li7lh4n4oc" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="citztw6f40004lkliz7rn7tds" class="article-share-link">Delen</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Angular學習筆記2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Blog/2016/04/11/Angular學習筆記2/" class="article-date">
-  <time datetime="2016-04-11T06:42:56.000Z" itemprop="datePublished">2016-04-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2016/04/11/Angular學習筆記2/">Angular學習筆記2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h2><p>Angular有很多的filter(如date、 uppercase &amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; data | filter:options &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>pipe( | ) 會將data輸出到後面的filter</p>
-        
-          <p class="article-more-link">
-            <a href="/Blog/2016/04/11/Angular學習筆記2/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/" data-id="citz2ofna0004z4liaxrrdhm3" class="article-share-link">Share</a>
-      
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/11/Angular學習筆記2/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/#disqus_thread" class="article-comment-link">Commentaren</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
@@ -578,7 +570,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/React/">React</a></li></ul>
     </div>
@@ -597,7 +589,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
     </div>
@@ -607,12 +599,16 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/Blog/2016/10/03/JavaScript-ES6/">JavaScript-ES6</a>
+            <a href="/Blog/2016/10/07/JavaScript-ES6-base2/">JavaScript-ES6基本介紹(下)</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2016/10/03/JavaScript-ES6-base1/">JavaScript-ES6基本介紹(上)</a>
           </li>
         
           <li>
@@ -625,10 +621,6 @@
         
           <li>
             <a href="/Blog/2016/06/04/React1/">React - JSX 語法</a>
-          </li>
-        
-          <li>
-            <a href="/Blog/2016/05/27/JavaScript-prototype/">JavaScript - Prototype</a>
           </li>
         
       </ul>

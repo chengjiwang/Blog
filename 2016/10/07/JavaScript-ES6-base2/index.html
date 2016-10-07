@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Angular學習筆記3 | Chengji&#39;s Blog</title>
+  <title>JavaScript-ES6基本介紹(下) | Chengji&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ng-model directiveng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。
-1&amp;lt;input type=&quot;text&quot; ng-model=&quot;name&quot; placeholder=&quot;Enter your name&quot;&amp;gt;
-在此會將使用者輸入的內容值，儲存於name變數中">
+  <meta name="description" content="4.1 - Arraysarray destructuring
+使用 destructuring 將陣列裡多個值分配到區域變數。
+可以將 destructuring 和 rest parameters combine 在一起">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular學習筆記3">
-<meta property="og:url" content="http://chengjiwang.github.io/Blog/2016/04/12/Angular學習筆記3/index.html">
+<meta property="og:title" content="JavaScript-ES6基本介紹(下)">
+<meta property="og:url" content="http://chengjiwang.github.io/Blog/2016/10/07/JavaScript-ES6-base2/index.html">
 <meta property="og:site_name" content="Chengji's Blog">
-<meta property="og:description" content="ng-model directiveng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。
-1&amp;lt;input type=&quot;text&quot; ng-model=&quot;name&quot; placeholder=&quot;Enter your name&quot;&amp;gt;
-在此會將使用者輸入的內容值，儲存於name變數中">
-<meta property="og:updated_time" content="2016-05-11T08:37:56.139Z">
+<meta property="og:description" content="4.1 - Arraysarray destructuring
+使用 destructuring 將陣列裡多個值分配到區域變數。
+可以將 destructuring 和 rest parameters combine 在一起">
+<meta property="og:updated_time" content="2016-10-07T08:28:42.809Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Angular學習筆記3">
-<meta name="twitter:description" content="ng-model directiveng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。
-1&amp;lt;input type=&quot;text&quot; ng-model=&quot;name&quot; placeholder=&quot;Enter your name&quot;&amp;gt;
-在此會將使用者輸入的內容值，儲存於name變數中">
+<meta name="twitter:title" content="JavaScript-ES6基本介紹(下)">
+<meta name="twitter:description" content="4.1 - Arraysarray destructuring
+使用 destructuring 將陣列裡多個值分配到區域變數。
+可以將 destructuring 和 rest parameters combine 在一起">
   
     <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Angular學習筆記3" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-JavaScript-ES6-base2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Blog/2016/04/12/Angular學習筆記3/" class="article-date">
-  <time datetime="2016-04-12T06:16:28.000Z" itemprop="datePublished">2016-04-12</time>
+    <a href="/Blog/2016/10/07/JavaScript-ES6-base2/" class="article-date">
+  <time datetime="2016-10-07T06:49:28.000Z" itemprop="datePublished">2016-10-07</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Angular學習筆記3
+      JavaScript-ES6基本介紹(下)
     </h1>
   
 
@@ -91,34 +91,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="ng-model-directive"><a href="#ng-model-directive" class="headerlink" title="ng-model directive"></a>ng-model directive</h2><p>ng-model directive 用於輸入欄位中，會依 expression 的內容將使用者輸入的資料做處理。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span> <span class="attr">placeholder</span>=<span class="string">"Enter your name"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在此會將使用者輸入的內容值，儲存於name變數中</p>
+        <h1 id="4-1-Arrays"><a href="#4-1-Arrays" class="headerlink" title="4.1 - Arrays"></a>4.1 - Arrays</h1><h2 id="array-destructuring"><a href="#array-destructuring" class="headerlink" title="array destructuring"></a>array destructuring</h2><ul>
+<li>使用 destructuring 將陣列裡多個值分配到區域變數。</li>
+<li>可以將 destructuring 和 rest parameters combine 在一起 </li>
+</ul>
 <a id="more"></a>
-<h2 id="ng-submit-directive"><a href="#ng-submit-directive" class="headerlink" title="ng-submit directive"></a>ng-submit directive</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">ng-submit</span>=<span class="string">"ctrl.submit()"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"ctrl.user.username"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">ng-model</span>=<span class="string">"ctrl.user.password"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在表單裡 ng-submit 有一些優點勝過按鈕的 ng-click，可以用多種方式觸發表單的提交事件(點擊按鈕或在input欄位按enter)，而 ng-click 只在點擊按鈕才會觸發。</p>
-<h2 id="validation"><a href="#validation" class="headerlink" title="validation"></a>validation</h2><ul>
-<li><p>要在表單中新增驗證功能，首先要在表單中使用novalidate去關閉HTML的預設驗證，<br>主要是因為要使驗證有一致性。</p>
-</li>
-<li><p>如果有有必須填寫的欄位，可以使用required去限制</p>
-</li>
-</ul>
-<h3 id="表單狀態"><a href="#表單狀態" class="headerlink" title="表單狀態"></a>表單狀態</h3><ul>
-<li>$invalid : 當表單中任何驗證(required ,ng-minlength 及其他)有無效時，為true 。</li>
-<li>$valid 當表單中所有驗證都正確時，為true 。</li>
-<li>$pristine :表示表單尚未被使用者輸入或修改 。</li>
-<li>$dirty :表示使用者對欄位做了些動作 。</li>
-</ul>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> users = [<span class="string">"Sam"</span>, <span class="string">"Tyler"</span>, <span class="string">"Brook"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//舊寫法</span></span><br><span class="line"><span class="keyword">let</span> a= users[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">let</span> b= users[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">let</span> c= users[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用 array destructuring</span></span><br><span class="line"><span class="keyword">let</span> [a, b, c] = users;</span><br><span class="line"><span class="built_in">console</span>.log( a, b, c ); <span class="comment">//Sam Tyler Brook</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//值可以被discard</span></span><br><span class="line"><span class="keyword">let</span> [a, , b] = users;</span><br><span class="line"><span class="built_in">console</span>.log( a, b ); <span class="comment">//Sam Brook</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Combining Destructuring With Rest Params</span></span><br><span class="line"><span class="keyword">let</span> [ first, ...rest ] = users;</span><br><span class="line"><span class="built_in">console</span>.log( first, rest ); <span class="comment">//Sam ["Tyler", "Brook"]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/" data-id="citztw6f40004lkliz7rn7tds" class="article-share-link">Delen</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/" data-id="citztw6f10003lklic72jatnp" class="article-share-link">Delen</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/#disqus_thread" class="article-comment-link">Commentaren</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/#disqus_thread" class="article-comment-link">Commentaren</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
 
     </footer>
   </div>
@@ -126,19 +113,10 @@
     
 <nav id="article-nav">
   
-    <a href="/Blog/2016/04/27/Angular學習筆記4-Firebase的AngularFire使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Nieuwer</strong>
-      <div class="article-nav-title">
-        
-          Angular學習筆記 4 - 如何使用AngularFire
-        
-      </div>
-    </a>
   
-  
-    <a href="/Blog/2016/04/11/Angular學習筆記2/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Blog/2016/10/03/JavaScript-ES6-base1/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Ouder</strong>
-      <div class="article-nav-title">Angular學習筆記2</div>
+      <div class="article-nav-title">JavaScript-ES6基本介紹(上)</div>
     </a>
   
 </nav>
@@ -243,7 +221,7 @@
 <script>
   var disqus_shortname = 'chengjisblog';
   
-  var disqus_url = 'http://chengjiwang.github.io/Blog/Blog/2016/04/12/Angular學習筆記3/';
+  var disqus_url = 'http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/';
   
   (function(){
     var dsq = document.createElement('script');
