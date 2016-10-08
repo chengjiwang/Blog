@@ -15,7 +15,7 @@
 <meta property="og:description" content="4.1 - Arraysarray destructuring
 使用 destructuring 將陣列裡多個值分配到區域變數。
 可以將 destructuring 和 rest parameters combine 在一起">
-<meta property="og:updated_time" content="2016-10-07T08:28:42.809Z">
+<meta property="og:updated_time" content="2016-10-08T12:41:16.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript-ES6基本介紹(下)">
 <meta name="twitter:description" content="4.1 - Arraysarray destructuring
@@ -60,7 +60,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
@@ -97,12 +97,30 @@
 </ul>
 <a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> users = [<span class="string">"Sam"</span>, <span class="string">"Tyler"</span>, <span class="string">"Brook"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//舊寫法</span></span><br><span class="line"><span class="keyword">let</span> a= users[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">let</span> b= users[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">let</span> c= users[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用 array destructuring</span></span><br><span class="line"><span class="keyword">let</span> [a, b, c] = users;</span><br><span class="line"><span class="built_in">console</span>.log( a, b, c ); <span class="comment">//Sam Tyler Brook</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//值可以被discard</span></span><br><span class="line"><span class="keyword">let</span> [a, , b] = users;</span><br><span class="line"><span class="built_in">console</span>.log( a, b ); <span class="comment">//Sam Brook</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Combining Destructuring With Rest Params</span></span><br><span class="line"><span class="keyword">let</span> [ first, ...rest ] = users;</span><br><span class="line"><span class="built_in">console</span>.log( first, rest ); <span class="comment">//Sam ["Tyler", "Brook"]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="for-of"><a href="#for-of" class="headerlink" title="for of"></a>for of</h2><ul>
+<li>for of 可以直接從陣列讀取每個元素，不須透過index </li>
+<li>物件不能使用for of ，因為 Symbol.iterator 屬性值不是 function 。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> names = [<span class="string">"Sam"</span>, <span class="string">"Tyler"</span>, <span class="string">"Brook"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> index <span class="keyword">in</span> names)&#123;  <span class="comment">//透過index</span></span><br><span class="line">  <span class="built_in">console</span>.log( names[index] ); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> name <span class="keyword">of</span> names)&#123; <span class="comment">//使用for of</span></span><br><span class="line">  <span class="built_in">console</span>.log( name ); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Array-find"><a href="#Array-find" class="headerlink" title="Array.find"></a>Array.find</h2><ul>
+<li>Array.find 這個方法會將你傳入的測試函式， 回傳陣列中符合的第一個元素。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> users = [</span><br><span class="line">  &#123; login: <span class="string">"Sam"</span>, admin: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; login: <span class="string">"Brook"</span>, admin: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; login: <span class="string">"Tyler"</span>, admin: <span class="literal">true</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> admin = users.find( (user) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> user.admin;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log( admin ); <span class="comment">//&#123; "login" : "Brook", &gt; "admin" : true &#125;</span></span><br></pre></td></tr></table></figure>
+<h1 id="4-2-Maps"><a href="#4-2-Maps" class="headerlink" title="4.2 - Maps"></a>4.2 - Maps</h1><h2 id="Map-object"><a href="#Map-object" class="headerlink" title="Map object"></a>Map object</h2><ul>
+<li>Map 物件是一個簡單的 key/value 資料結構，允許任何值去設定 key 或 value。當使用物件設定 key，並不會轉換成字串。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user1 = &#123; name: <span class="string">"Sam"</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> user2 = &#123; name: <span class="string">"Tyler"</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> totalReplies = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">totalReplies.set( user1, <span class="number">5</span> );<span class="comment">//使用set方法</span></span><br><span class="line">totalReplies.set( user2, <span class="number">42</span> );</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( totalReplies.get(user1) );<span class="comment">//5 ，使用get方法</span></span><br><span class="line"><span class="built_in">console</span>.log( totalReplies.get(user2) );<span class="comment">//42</span></span><br></pre></td></tr></table></figure>
+<h2 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h2><ul>
+<li>WeakMap 只能用物件設定 key ，不能使用原始(Primitive)型別，如字串,數值。</li>
+<li>WeakMap 不能夠重複，因此不能使用在 for…of</li>
+</ul>
+<h1 id="4-3-Sets"><a href="#4-3-Sets" class="headerlink" title="4.3 - Sets"></a>4.3 - Sets</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/" data-id="citztw6f10003lklic72jatnp" class="article-share-link">Delen</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/" data-id="ciu16ukty0009awlizfqh980y" class="article-share-link">Share</a>
       
-        <a href="http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/#disqus_thread" class="article-comment-link">Commentaren</a>
+        <a href="http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
@@ -115,7 +133,7 @@
   
   
     <a href="/Blog/2016/10/03/JavaScript-ES6-base1/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">JavaScript-ES6基本介紹(上)</div>
     </a>
   
@@ -139,7 +157,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/React/">React</a></li></ul>
     </div>
@@ -158,7 +176,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
     </div>
@@ -168,7 +186,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
