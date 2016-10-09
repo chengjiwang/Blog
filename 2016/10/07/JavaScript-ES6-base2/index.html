@@ -5,22 +5,16 @@
   
   <title>JavaScript-ES6基本介紹(下) | Chengji&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="4.1 - Arraysarray destructuring
-使用 destructuring 將陣列裡多個值分配到區域變數。
-可以將 destructuring 和 rest parameters combine 在一起">
+  <meta name="description" content="4.1 - Arrays">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript-ES6基本介紹(下)">
 <meta property="og:url" content="http://chengjiwang.github.io/Blog/2016/10/07/JavaScript-ES6-base2/index.html">
 <meta property="og:site_name" content="Chengji's Blog">
-<meta property="og:description" content="4.1 - Arraysarray destructuring
-使用 destructuring 將陣列裡多個值分配到區域變數。
-可以將 destructuring 和 rest parameters combine 在一起">
-<meta property="og:updated_time" content="2016-10-08T12:41:16.416Z">
+<meta property="og:description" content="4.1 - Arrays">
+<meta property="og:updated_time" content="2016-10-09T13:12:30.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript-ES6基本介紹(下)">
-<meta name="twitter:description" content="4.1 - Arraysarray destructuring
-使用 destructuring 將陣列裡多個值分配到區域變數。
-可以將 destructuring 和 rest parameters combine 在一起">
+<meta name="twitter:description" content="4.1 - Arrays">
   
     <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
   
@@ -91,11 +85,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="4-1-Arrays"><a href="#4-1-Arrays" class="headerlink" title="4.1 - Arrays"></a>4.1 - Arrays</h1><h2 id="array-destructuring"><a href="#array-destructuring" class="headerlink" title="array destructuring"></a>array destructuring</h2><ul>
+        <h1 id="4-1-Arrays"><a href="#4-1-Arrays" class="headerlink" title="4.1 - Arrays"></a>4.1 - Arrays</h1><a id="more"></a>
+<h2 id="array-destructuring"><a href="#array-destructuring" class="headerlink" title="array destructuring"></a>array destructuring</h2><ul>
 <li>使用 destructuring 將陣列裡多個值分配到區域變數。</li>
 <li>可以將 destructuring 和 rest parameters combine 在一起 </li>
 </ul>
-<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> users = [<span class="string">"Sam"</span>, <span class="string">"Tyler"</span>, <span class="string">"Brook"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//舊寫法</span></span><br><span class="line"><span class="keyword">let</span> a= users[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">let</span> b= users[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">let</span> c= users[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用 array destructuring</span></span><br><span class="line"><span class="keyword">let</span> [a, b, c] = users;</span><br><span class="line"><span class="built_in">console</span>.log( a, b, c ); <span class="comment">//Sam Tyler Brook</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//值可以被discard</span></span><br><span class="line"><span class="keyword">let</span> [a, , b] = users;</span><br><span class="line"><span class="built_in">console</span>.log( a, b ); <span class="comment">//Sam Brook</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Combining Destructuring With Rest Params</span></span><br><span class="line"><span class="keyword">let</span> [ first, ...rest ] = users;</span><br><span class="line"><span class="built_in">console</span>.log( first, rest ); <span class="comment">//Sam ["Tyler", "Brook"]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="for-of"><a href="#for-of" class="headerlink" title="for of"></a>for of</h2><ul>
 <li>for of 可以直接從陣列讀取每個元素，不須透過index </li>
@@ -114,11 +108,48 @@
 <li>WeakMap 只能用物件設定 key ，不能使用原始(Primitive)型別，如字串,數值。</li>
 <li>WeakMap 不能夠重複，因此不能使用在 for…of</li>
 </ul>
-<h1 id="4-3-Sets"><a href="#4-3-Sets" class="headerlink" title="4.3 - Sets"></a>4.3 - Sets</h1>
+<h1 id="4-3-Sets"><a href="#4-3-Sets" class="headerlink" title="4.3 - Sets"></a>4.3 - Sets</h1><h2 id="Set-object"><a href="#Set-object" class="headerlink" title="Set object"></a>Set object</h2><ul>
+<li>Set 物件儲存單一任何型態的值，不論是原始(Primitive)型別或物件。</li>
+<li>重複的輸入值會被忽略。</li>
+<li>可以和 for…of 或 array destructuring 一起使用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tags = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//use the add() method to add elements to a Set</span></span><br><span class="line">tags.add(<span class="string">"JavaScript"</span>);</span><br><span class="line">tags.add(<span class="string">"Programming"</span>);</span><br><span class="line">tags.add(&#123; version: <span class="string">"2015"</span> &#125;);</span><br><span class="line">tags.add(<span class="string">"Web"</span>);</span><br><span class="line">tags.add(<span class="string">"Web"</span>);<span class="comment">//重複的輸入值會被忽略</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> tag <span class="keyword">of</span> tags)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(tag);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a,b,c,d] = tags;</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c, d);</span><br></pre></td></tr></table></figure>
+<h2 id="WeakSet"><a href="#WeakSet" class="headerlink" title="WeakSet"></a>WeakSet</h2><ul>
+<li>WeakSet 是 Set 的一個型態，只能允許物件的儲存。</li>
+<li>不能使用在 for…of</li>
+<li>不能從WeakSet 讀取值，但我們可以建立一個物件的 groups，然後確認某些物件是否有在這個 groups</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> weakTags = <span class="keyword">new</span> <span class="built_in">WeakSet</span>();</span><br><span class="line"></span><br><span class="line">weakTags.add(<span class="string">"JavaScript"</span>); <span class="comment">//TypeError: Invalid value &gt; used in weak set</span></span><br><span class="line">weakTags.add(&#123; name: <span class="string">"JavaScript"</span> &#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="5-1-Classes"><a href="#5-1-Classes" class="headerlink" title="5.1 - Classes"></a>5.1 - Classes</h1><h2 id="Class-Syntax-amp-constructor"><a href="#Class-Syntax-amp-constructor" class="headerlink" title="Class Syntax &amp; constructor"></a>Class Syntax &amp; constructor</h2><ul>
+<li>使用class關鍵字，class 語法是 prototype 的語法糖</li>
+<li>constructor 是一個建立和初始物件的特殊方法。</li>
+<li>設定在 constructor 裡的實例變數，可以被class內的其他實例方法所存取。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SponsorWidget</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, description, url)&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.description = description;</span><br><span class="line">	<span class="keyword">this</span>.url = url;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render()&#123; <span class="comment">//定義實例(instance )的方法</span></span><br><span class="line">    <span class="keyword">let</span> link = <span class="keyword">this</span>._buildLink(<span class="keyword">this</span>.url);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sponsorWidget = <span class="keyword">new</span> SponsorWidget(name, description, url);</span><br><span class="line">sponsorWidget.render();</span><br></pre></td></tr></table></figure>
+<h2 id="Class-Inheritance"><a href="#Class-Inheritance" class="headerlink" title="Class Inheritance"></a>Class Inheritance</h2><ul>
+<li>子classes 繼承父 classes 的基本行為並有其特定的屬性 ，子classes 我們又稱為subclass</li>
+<li>extends 關鍵字會建立一個 class 繼承至另一個class的方法和屬性。 super 方法使子classes可以調用父class的設定的code</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SponsorWidget</span> <span class="keyword">extends</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, description, url)&#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">let</span> parsedName = <span class="keyword">this</span>.parse(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="5-2-Modules-Part-I"><a href="#5-2-Modules-Part-I" class="headerlink" title="5.2 - Modules Part I"></a>5.2 - Modules Part I</h1><ul>
+<li>export 會將函式導出到模組系統</li>
+<li>default type 會以最簡單方式導出到模組系統</li>
+<li>使用 import 載入模組</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//flash-message.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">  alert(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//app.js</span></span><br><span class="line"><span class="keyword">import</span> flashMessage <span class="keyword">from</span> <span class="string">'./flash-message'</span>;</span><br><span class="line">flashMessage(<span class="string">"Hello"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多個函式要導出使用Named Exports</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//flash-message.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">alertMessage</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  alert(message);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">logMessage</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//app.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; alertMessage, logMessage &#125; <span class="keyword">from</span> <span class="string">'./flash-message'</span>;</span><br><span class="line">alertMessage(<span class="string">'Hello from alert'</span>);</span><br><span class="line">logMessage(<span class="string">'Hello from log'</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>另外一種方式，將導入的整個模組當成一個物件，然後用物件的屬性去呼叫個別的函式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//flash-message.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">alertMessage</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  alert(message);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">logMessage</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//app.js</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> flash <span class="keyword">from</span> <span class="string">'./flash-message'</span>;</span><br><span class="line">flash.alertMessage(<span class="string">'Hello from alert'</span>);</span><br><span class="line">flash.logMessage(<span class="string">'Hello from log'</span>);</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/" data-id="ciu16ukty0009awlizfqh980y" class="article-share-link">Share</a>
+      <a data-url="http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/" data-id="ciu2n89ri0009fkliio06r5y8" class="article-share-link">Share</a>
       
         <a href="http://chengjiwang.github.io/Blog/Blog/2016/10/07/JavaScript-ES6-base2/#disqus_thread" class="article-comment-link">Comments</a>
       
