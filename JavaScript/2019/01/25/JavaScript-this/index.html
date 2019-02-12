@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>JavaScript - this | Chengji&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="this 會隨著 function 調用(執行)的方式不同而不一樣。只存在於function 裡面，全域不會有。">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript - this">
+<meta property="og:url" content="http://chengjiwang.github.io/Blog/JavaScript/2019/01/25/JavaScript-this/index.html">
+<meta property="og:site_name" content="Chengji&#39;s Blog">
+<meta property="og:description" content="this 會隨著 function 調用(執行)的方式不同而不一樣。只存在於function 裡面，全域不會有。">
+<meta property="og:locale" content="zh-Hant-TW">
+<meta property="og:updated_time" content="2019-01-25T13:07:48.757Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript - this">
+<meta name="twitter:description" content="this 會隨著 function 調用(執行)的方式不同而不一樣。只存在於function 裡面，全域不會有。">
+  
+    <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">Chengji&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript-this" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/JavaScript/2019/01/25/JavaScript-this/" class="article-date">
+  <time datetime="2019-01-25T03:29:16.000Z" itemprop="datePublished">2019-01-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/JavaScript/">JavaScript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript - this
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="this-會隨著-function-調用-執行-的方式不同而不一樣。只存在於function-裡面，全域不會有。"><a href="#this-會隨著-function-調用-執行-的方式不同而不一樣。只存在於function-裡面，全域不會有。" class="headerlink" title="this 會隨著 function 調用(執行)的方式不同而不一樣。只存在於function 裡面，全域不會有。"></a>this 會隨著 function 調用(執行)的方式不同而不一樣。只存在於function 裡面，全域不會有。</h3><a id="more"></a> 
+<h1 id="function-調用的四種方法如下："><a href="#function-調用的四種方法如下：" class="headerlink" title="function 調用的四種方法如下："></a>function 調用的四種方法如下：</h1><h2 id="1-作為函式-function"><a href="#1-作為函式-function" class="headerlink" title="1. 作為函式(function)"></a>1. 作為函式(function)</h2>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> showCarBand = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">showCarBand();</span><br></pre></td></tr></table></figure>
+<p>  在嚴謹模式下為 undefined 。<br>  非嚴謹模式下為全域根物件(在瀏覽器為 window 物件，在 node.js 為 global 物件)。</p>
+<h2 id="2-作為物件的方法-methods"><a href="#2-作為物件的方法-methods" class="headerlink" title="2. 作為物件的方法(methods)"></a>2. 作為物件的方法(methods)</h2><p>  會回傳<code>執行時</code>的所屬物件</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> carBand = &#123;</span><br><span class="line">  show: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">carBand.show(); <span class="comment">// this 在此為 carBand 物件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newBand = carBand.show;</span><br><span class="line">newBand(); <span class="comment">// newBand 執行的時候沒有所屬物件，所以它只是函式調用，this 在此為 window 物件</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-作為建構式-constructor"><a href="#3-作為建構式-constructor" class="headerlink" title="3. 作為建構式(constructor)"></a>3. 作為建構式(constructor)</h2><p>  this 為建立的新物件<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Car = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> tesla = <span class="keyword">new</span> Car(<span class="string">"Tesla"</span>);</span><br><span class="line"><span class="comment">// 使用 new 會建立一個空物件，把 this 指向這個新物件</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="4-透過-call-或-apply-方法間接調用"><a href="#4-透過-call-或-apply-方法間接調用" class="headerlink" title="4.透過 call()或 apply()方法間接調用"></a>4.透過 call()或 apply()方法間接調用</h2>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.使用 call 時，第一個參數會傳給這個 function 的 this</span></span><br><span class="line"><span class="keyword">const</span> car = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// &#123;band: "mazda"&#125;</span></span><br><span class="line">&#125;</span><br><span class="line">car.call(&#123;<span class="attr">band</span>:<span class="string">'mazda'</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 使用 call ，傳入 this 和其它的參數</span></span><br><span class="line"><span class="keyword">const</span> car = <span class="function"><span class="keyword">function</span>(<span class="params">year, modal</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// &#123;band: "mazda"&#125;</span></span><br><span class="line">  <span class="built_in">console</span>.log(year); <span class="comment">// 2007</span></span><br><span class="line">  <span class="built_in">console</span>.log(modal); <span class="comment">// 'cx-3'</span></span><br><span class="line">&#125;</span><br><span class="line">car.call(&#123;<span class="attr">band</span>:<span class="string">'mazda'</span>&#125;, <span class="number">2007</span> , <span class="string">'cx-3'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 使用 apply 回傳結果一樣。call 和 apply 的差別是， apply只能傳兩個值，而且不能一個一個傳，需用陣列傳</span></span><br><span class="line"><span class="keyword">const</span> car = <span class="function"><span class="keyword">function</span>(<span class="params">year, modal</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// &#123;band: "mazda"&#125;</span></span><br><span class="line">  <span class="built_in">console</span>.log(year); <span class="comment">// 2007</span></span><br><span class="line">  <span class="built_in">console</span>.log(modal); <span class="comment">// 'cx-3'</span></span><br><span class="line">&#125;</span><br><span class="line">car.apply(&#123;<span class="attr">band</span>:<span class="string">'mazda'</span>&#125; ,[<span class="number">2007</span>, <span class="string">'cx-3'</span>]);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/JavaScript/2019/01/25/JavaScript-this/" data-id="cjs05fr6a000ytsliq94mo2wz" class="article-share-link">Share</a>
+      
+        <a href="http://chengjiwang.github.io/Blog/JavaScript/2019/01/25/JavaScript-this/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/JavaScript/2019/01/28/JavaScript-arrow-function/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ES6 - arrow function
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/JavaScript/2019/01/24/JavaScript-destructuring/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ES6 - 解構賦值</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Bootstrap/">Bootstrap</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/OAuth-2-0/">OAuth 2.0</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/React/">React</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/es6/">es6</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/Angular/" style="font-size: 16.67px;">Angular</a> <a href="/Blog/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/Blog/tags/ES6/" style="font-size: 16.67px;">ES6</a> <a href="/Blog/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/Blog/tags/React/" style="font-size: 13.33px;">React</a> <a href="/Blog/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/Blog/tags/es6/" style="font-size: 13.33px;">es6</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/28/JavaScript-arrow-function/">ES6 - arrow function</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/25/JavaScript-this/">JavaScript - this</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/24/JavaScript-destructuring/">ES6 - 解構賦值</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/23/JavaScript-spread-rest/">ES6 - spread operator 與 rest operator</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/22/JavaScript-let-const/">ES6 - let 與 const</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Chengji Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chengjisblog';
+  
+  var disqus_url = 'http://chengjiwang.github.io/Blog/JavaScript/2019/01/25/JavaScript-this/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>JavaScript-ES6 基本介紹(下) | Chengji&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="4.1 - Arrays">
+<meta name="keywords" content="JavaScript,es6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-ES6 基本介紹(下)">
+<meta property="og:url" content="http://chengjiwang.github.io/Blog/JavaScript/2016/10/07/javaScript-es6-basic-2/index.html">
+<meta property="og:site_name" content="Chengji&#39;s Blog">
+<meta property="og:description" content="4.1 - Arrays">
+<meta property="og:locale" content="zh-Hant-TW">
+<meta property="og:updated_time" content="2018-11-19T14:17:06.994Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-ES6 基本介紹(下)">
+<meta name="twitter:description" content="4.1 - Arrays">
+  
+    <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">Chengji&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javaScript-es6-basic-2" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/JavaScript/2016/10/07/javaScript-es6-basic-2/" class="article-date">
+  <time datetime="2016-10-07T06:49:28.000Z" itemprop="datePublished">2016-10-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/JavaScript/">JavaScript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript-ES6 基本介紹(下)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="4-1-Arrays"><a href="#4-1-Arrays" class="headerlink" title="4.1 - Arrays"></a>4.1 - Arrays</h1><a id="more"></a>
+<h2 id="array-destructuring"><a href="#array-destructuring" class="headerlink" title="array destructuring"></a>array destructuring</h2><ul>
+<li>使用 destructuring 將陣列裡多個值分配到區域變數。</li>
+<li>可以將 destructuring 和 rest parameters combine 在一起 </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> users = [<span class="string">"Sam"</span>, <span class="string">"Tyler"</span>, <span class="string">"Brook"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//舊寫法</span></span><br><span class="line"><span class="keyword">let</span> a= users[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">let</span> b= users[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">let</span> c= users[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用 array destructuring</span></span><br><span class="line"><span class="keyword">let</span> [a, b, c] = users;</span><br><span class="line"><span class="built_in">console</span>.log( a, b, c ); <span class="comment">//Sam Tyler Brook</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//值可以被discard</span></span><br><span class="line"><span class="keyword">let</span> [a, , b] = users;</span><br><span class="line"><span class="built_in">console</span>.log( a, b ); <span class="comment">//Sam Brook</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Combining Destructuring With Rest Params</span></span><br><span class="line"><span class="keyword">let</span> [ first, ...rest ] = users;</span><br><span class="line"><span class="built_in">console</span>.log( first, rest ); <span class="comment">//Sam ["Tyler", "Brook"]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="for-of"><a href="#for-of" class="headerlink" title="for of"></a>for of</h2><ul>
+<li>for of 可以直接從陣列讀取每個元素，不須透過index </li>
+<li>物件不能使用for of ，因為 Symbol.iterator 屬性值不是 function 。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> names = [<span class="string">"Sam"</span>, <span class="string">"Tyler"</span>, <span class="string">"Brook"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> index <span class="keyword">in</span> names)&#123;  <span class="comment">//透過index</span></span><br><span class="line">  <span class="built_in">console</span>.log( names[index] ); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> name <span class="keyword">of</span> names)&#123; <span class="comment">//使用for of</span></span><br><span class="line">  <span class="built_in">console</span>.log( name ); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Array-find"><a href="#Array-find" class="headerlink" title="Array.find"></a>Array.find</h2><ul>
+<li>Array.find 這個方法會將你傳入的測試函式， 回傳陣列中符合的第一個元素。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> users = [</span><br><span class="line">  &#123; <span class="attr">login</span>: <span class="string">"Sam"</span>, <span class="attr">admin</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">login</span>: <span class="string">"Brook"</span>, <span class="attr">admin</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">login</span>: <span class="string">"Tyler"</span>, <span class="attr">admin</span>: <span class="literal">true</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> admin = users.find( <span class="function">(<span class="params">user</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> user.admin;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log( admin ); <span class="comment">//&#123; "login" : "Brook", &gt; "admin" : true &#125;</span></span><br></pre></td></tr></table></figure>
+<h1 id="4-2-Maps"><a href="#4-2-Maps" class="headerlink" title="4.2 - Maps"></a>4.2 - Maps</h1><h2 id="Map-object"><a href="#Map-object" class="headerlink" title="Map object"></a>Map object</h2><ul>
+<li>Map 物件是一個簡單的 key/value 資料結構，允許任何值去設定 key 或 value。當使用物件設定 key，並不會轉換成字串。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user1 = &#123; <span class="attr">name</span>: <span class="string">"Sam"</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> user2 = &#123; <span class="attr">name</span>: <span class="string">"Tyler"</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> totalReplies = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">totalReplies.set( user1, <span class="number">5</span> );<span class="comment">//使用set方法</span></span><br><span class="line">totalReplies.set( user2, <span class="number">42</span> );</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( totalReplies.get(user1) );<span class="comment">//5 ，使用get方法</span></span><br><span class="line"><span class="built_in">console</span>.log( totalReplies.get(user2) );<span class="comment">//42</span></span><br></pre></td></tr></table></figure>
+<h2 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h2><ul>
+<li>WeakMap 只能用物件設定 key ，不能使用原始(Primitive)型別，如字串,數值。</li>
+<li>WeakMap 不能夠重複，因此不能使用在 for…of</li>
+</ul>
+<h1 id="4-3-Sets"><a href="#4-3-Sets" class="headerlink" title="4.3 - Sets"></a>4.3 - Sets</h1><h2 id="Set-object"><a href="#Set-object" class="headerlink" title="Set object"></a>Set object</h2><ul>
+<li>Set 物件儲存單一任何型態的值，不論是原始(Primitive)型別或物件。</li>
+<li>重複的輸入值會被忽略。</li>
+<li>可以和 for…of 或 array destructuring 一起使用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tags = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//use the add() method to add elements to a Set</span></span><br><span class="line">tags.add(<span class="string">"JavaScript"</span>);</span><br><span class="line">tags.add(<span class="string">"Programming"</span>);</span><br><span class="line">tags.add(&#123; <span class="attr">version</span>: <span class="string">"2015"</span> &#125;);</span><br><span class="line">tags.add(<span class="string">"Web"</span>);</span><br><span class="line">tags.add(<span class="string">"Web"</span>);<span class="comment">//重複的輸入值會被忽略</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> tag <span class="keyword">of</span> tags)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(tag);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a,b,c,d] = tags;</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c, d);</span><br></pre></td></tr></table></figure>
+<h2 id="WeakSet"><a href="#WeakSet" class="headerlink" title="WeakSet"></a>WeakSet</h2><ul>
+<li>WeakSet 是 Set 的一個型態，只能允許物件的儲存。</li>
+<li>不能使用在 for…of</li>
+<li>不能從WeakSet 讀取值，但我們可以建立一個物件的 groups，然後確認某些物件是否有在這個 groups</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> weakTags = <span class="keyword">new</span> <span class="built_in">WeakSet</span>();</span><br><span class="line"></span><br><span class="line">weakTags.add(<span class="string">"JavaScript"</span>); <span class="comment">//TypeError: Invalid value &gt; used in weak set</span></span><br><span class="line">weakTags.add(&#123; <span class="attr">name</span>: <span class="string">"JavaScript"</span> &#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="5-1-Classes"><a href="#5-1-Classes" class="headerlink" title="5.1 - Classes"></a>5.1 - Classes</h1><h2 id="Class-Syntax-amp-constructor"><a href="#Class-Syntax-amp-constructor" class="headerlink" title="Class Syntax &amp; constructor"></a>Class Syntax &amp; constructor</h2><ul>
+<li>使用class關鍵字，class 語法是 prototype 的語法糖</li>
+<li>constructor 是一個建立和初始物件的特殊方法。</li>
+<li>設定在 constructor 裡的實例變數，可以被class內的其他實例方法所存取。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SponsorWidget</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, description, url)&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.description = description;</span><br><span class="line">	<span class="keyword">this</span>.url = url;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render()&#123; <span class="comment">//定義實例(instance )的方法</span></span><br><span class="line">    <span class="keyword">let</span> link = <span class="keyword">this</span>._buildLink(<span class="keyword">this</span>.url);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sponsorWidget = <span class="keyword">new</span> SponsorWidget(name, description, url);</span><br><span class="line">sponsorWidget.render();</span><br></pre></td></tr></table></figure>
+<h2 id="Class-Inheritance"><a href="#Class-Inheritance" class="headerlink" title="Class Inheritance"></a>Class Inheritance</h2><ul>
+<li>子classes 繼承父 classes 的基本行為並有其特定的屬性 ，子classes 我們又稱為subclass</li>
+<li>extends 關鍵字會建立一個 class 繼承至另一個class的方法和屬性。 super 方法使子classes可以調用父class的設定的code</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SponsorWidget</span> <span class="keyword">extends</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, description, url)&#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">let</span> parsedName = <span class="keyword">this</span>.parse(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="5-2-Modules-Part-I"><a href="#5-2-Modules-Part-I" class="headerlink" title="5.2 - Modules Part I"></a>5.2 - Modules Part I</h1><ul>
+<li>export 會將函式導出到模組系統</li>
+<li>default type 會以最簡單方式導出到模組系統</li>
+<li>使用 import 載入模組</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//flash-message.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">  alert(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//app.js</span></span><br><span class="line"><span class="keyword">import</span> flashMessage <span class="keyword">from</span> <span class="string">'./flash-message'</span>;</span><br><span class="line">flashMessage(<span class="string">"Hello"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多個函式要導出使用Named Exports</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//flash-message.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">alertMessage</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  alert(message);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">logMessage</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//app.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; alertMessage, logMessage &#125; <span class="keyword">from</span> <span class="string">'./flash-message'</span>;</span><br><span class="line">alertMessage(<span class="string">'Hello from alert'</span>);</span><br><span class="line">logMessage(<span class="string">'Hello from log'</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>另外一種方式，將導入的整個模組當成一個物件，然後用物件的屬性去呼叫個別的函式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//flash-message.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">alertMessage</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  alert(message);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">logMessage</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//app.js</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> flash <span class="keyword">from</span> <span class="string">'./flash-message'</span>;</span><br><span class="line">flash.alertMessage(<span class="string">'Hello from alert'</span>);</span><br><span class="line">flash.logMessage(<span class="string">'Hello from log'</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="6-1-Promises-Iterators-and-Generators"><a href="#6-1-Promises-Iterators-and-Generators" class="headerlink" title="6.1 - Promises, Iterators, and Generators"></a>6.1 - Promises, Iterators, and Generators</h1><h2 id="Promises"><a href="#Promises" class="headerlink" title="Promises"></a>Promises</h2><ul>
+<li><p>Promises 可以使我們用更好的方式寫非同步程式碼，且不須使用 nested callbacks</p>
+</li>
+<li><p>當 Promises return 一個 Promise 物件時，並不是回傳一個結果，而是回傳一個 future value，如一個非同步操作的事件結果</p>
+</li>
+</ul>
+<p>request.onload = function() {<br>  if (request.status &gt;= 200 &amp;&amp; request.status &lt; 400) {<br>    resolve(JSON.parse(request.response));<br>}<br>};<br>//…</p>
+<p>Since request.response returns plain text<br>we’ll go ahead and convert<br>it to JSON using JSON.parse.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/JavaScript/2016/10/07/javaScript-es6-basic-2/" data-id="cjs05fr6k0018tslioirpx8uh" class="article-share-link">Share</a>
+      
+        <a href="http://chengjiwang.github.io/Blog/JavaScript/2016/10/07/javaScript-es6-basic-2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/es6/">es6</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/Bootstrap/2018/11/19/bootstrap4-grid-system/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Bootstrap 4 網格系統
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/JavaScript/2016/10/03/javaScript-es6-basic-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript-ES6 基本介紹(上)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Bootstrap/">Bootstrap</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/OAuth-2-0/">OAuth 2.0</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/React/">React</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/es6/">es6</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/Angular/" style="font-size: 16.67px;">Angular</a> <a href="/Blog/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/Blog/tags/ES6/" style="font-size: 16.67px;">ES6</a> <a href="/Blog/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/Blog/tags/React/" style="font-size: 13.33px;">React</a> <a href="/Blog/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/Blog/tags/es6/" style="font-size: 13.33px;">es6</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/28/JavaScript-arrow-function/">ES6 - arrow function</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/25/JavaScript-this/">JavaScript - this</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/24/JavaScript-destructuring/">ES6 - 解構賦值</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/23/JavaScript-spread-rest/">ES6 - spread operator 與 rest operator</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/22/JavaScript-let-const/">ES6 - let 與 const</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Chengji Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chengjisblog';
+  
+  var disqus_url = 'http://chengjiwang.github.io/Blog/JavaScript/2016/10/07/javaScript-es6-basic-2/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

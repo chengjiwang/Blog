@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>ES6 - spread operator 與 rest operator | Chengji&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="展開運算子(spread operator)">
+<meta name="keywords" content="JavaScript,ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6 - spread operator 與 rest operator">
+<meta property="og:url" content="http://chengjiwang.github.io/Blog/JavaScript/2019/01/23/JavaScript-spread-rest/index.html">
+<meta property="og:site_name" content="Chengji&#39;s Blog">
+<meta property="og:description" content="展開運算子(spread operator)">
+<meta property="og:locale" content="zh-Hant-TW">
+<meta property="og:updated_time" content="2019-01-28T02:59:39.815Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6 - spread operator 與 rest operator">
+<meta name="twitter:description" content="展開運算子(spread operator)">
+  
+    <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">Chengji&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript-spread-rest" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/JavaScript/2019/01/23/JavaScript-spread-rest/" class="article-date">
+  <time datetime="2019-01-23T03:02:03.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/JavaScript/">JavaScript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6 - spread operator 與 rest operator
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="展開運算子-spread-operator"><a href="#展開運算子-spread-operator" class="headerlink" title="展開運算子(spread operator)"></a>展開運算子(spread operator)</h2>  <a id="more"></a> 
+<ul>
+<li><p>展開運算子會將陣列裡面的值一個一個取出來，並 return 回去</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> carBandA = [<span class="string">'Ford'</span>, <span class="string">'Skoda'</span>];</span><br><span class="line"><span class="keyword">let</span> carBandB = [<span class="string">'BMW'</span>, <span class="string">'Audi'</span>];</span><br><span class="line"><span class="keyword">let</span> carAll = [...carBandA, ...carBandB];</span><br><span class="line"><span class="built_in">console</span>.log(carAll); <span class="comment">// ["Ford", "Skoda", "BMW", "Audi"]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>展開可以將類陣列轉成陣列 :<br>類陣列的原型(__proto)和陣列的原型不同，只有部分的方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> doms = <span class="built_in">document</span>.querySelectorAll(<span class="string">'p'</span>); <span class="comment">// 類陣列</span></span><br><span class="line"><span class="keyword">let</span> newDoms = [...doms]; <span class="comment">// 轉成陣列</span></span><br><span class="line"><span class="built_in">console</span>.log(doms ,newDoms);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用展開可以避免陣列因為傳參考而影響到原本的陣列</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.傳參考</span></span><br><span class="line"><span class="keyword">let</span> carBandA = [<span class="string">'Ford'</span>, <span class="string">'Skoda'</span>];</span><br><span class="line"><span class="keyword">let</span> carBandB = carBandA; <span class="comment">// carBandB 指向 carBandA 。傳參考</span></span><br><span class="line">carBandB.push(<span class="string">'Honda'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(carBandA); <span class="comment">// ["Ford", "Skoda", "Honda"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.無參考</span></span><br><span class="line"><span class="keyword">let</span> carBandA = [<span class="string">'Ford'</span>, <span class="string">'Skoda'</span>];</span><br><span class="line"><span class="keyword">let</span> newCarBand = [...carBandA]; <span class="comment">//新陣列。無參考</span></span><br><span class="line">newCarBand.push(<span class="string">'Mazda'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(carBandA); <span class="comment">// ["Ford", "Skoda"]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="其餘運算子-rest-operator，也可稱為其餘參數"><a href="#其餘運算子-rest-operator，也可稱為其餘參數" class="headerlink" title="其餘運算子 (rest operator，也可稱為其餘參數)"></a>其餘運算子 (rest operator，也可稱為其餘參數)</h2><ul>
+<li><p>其餘參數會將其餘的值轉為陣列，用在函式定義中的傳入參數或解構賦值時。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showCarBand</span>(<span class="params">a, ...band</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, band);</span><br><span class="line">  <span class="comment">//會將其餘的參數轉為陣列，band =  ["Ford", "Skoda"]</span></span><br><span class="line">&#125;</span><br><span class="line">showCarBand(<span class="string">'Mazda'</span>, <span class="string">'Ford'</span>, <span class="string">'Skoda'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/JavaScript/2019/01/23/JavaScript-spread-rest/" data-id="cjs05fr6o001ctslit0bvllr7" class="article-share-link">Share</a>
+      
+        <a href="http://chengjiwang.github.io/Blog/JavaScript/2019/01/23/JavaScript-spread-rest/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/JavaScript/2019/01/24/JavaScript-destructuring/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ES6 - 解構賦值
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/JavaScript/2019/01/22/JavaScript-let-const/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ES6 - let 與 const</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Bootstrap/">Bootstrap</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/OAuth-2-0/">OAuth 2.0</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/React/">React</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/es6/">es6</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/Angular/" style="font-size: 16.67px;">Angular</a> <a href="/Blog/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/Blog/tags/ES6/" style="font-size: 16.67px;">ES6</a> <a href="/Blog/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/Blog/tags/React/" style="font-size: 13.33px;">React</a> <a href="/Blog/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/Blog/tags/es6/" style="font-size: 13.33px;">es6</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/28/JavaScript-arrow-function/">ES6 - arrow function</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/25/JavaScript-this/">JavaScript - this</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/24/JavaScript-destructuring/">ES6 - 解構賦值</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/23/JavaScript-spread-rest/">ES6 - spread operator 與 rest operator</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/22/JavaScript-let-const/">ES6 - let 與 const</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Chengji Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chengjisblog';
+  
+  var disqus_url = 'http://chengjiwang.github.io/Blog/JavaScript/2019/01/23/JavaScript-spread-rest/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

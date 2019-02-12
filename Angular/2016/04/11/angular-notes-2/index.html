@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Angular學習筆記2 | Chengji&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="FilterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter 1&amp;#123;&amp;#123; data | filter:options &amp;#125;&amp;#125; pipe( | ) 會將data輸出到後面的filter">
+<meta name="keywords" content="Angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular學習筆記2">
+<meta property="og:url" content="http://chengjiwang.github.io/Blog/Angular/2016/04/11/angular-notes-2/index.html">
+<meta property="og:site_name" content="Chengji&#39;s Blog">
+<meta property="og:description" content="FilterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter 1&amp;#123;&amp;#123; data | filter:options &amp;#125;&amp;#125; pipe( | ) 會將data輸出到後面的filter">
+<meta property="og:locale" content="zh-Hant-TW">
+<meta property="og:updated_time" content="2018-11-19T14:08:44.914Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular學習筆記2">
+<meta name="twitter:description" content="FilterAngular有很多的filter(如date、 uppercase &amp;amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter 1&amp;#123;&amp;#123; data | filter:options &amp;#125;&amp;#125; pipe( | ) 會將data輸出到後面的filter">
+  
+    <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">Chengji&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-angular-notes-2" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/Angular/2016/04/11/angular-notes-2/" class="article-date">
+  <time datetime="2016-04-11T06:42:56.000Z" itemprop="datePublished">2016-04-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/Angular/">Angular</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Angular學習筆記2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h2><p>Angular有很多的filter(如date、 uppercase &amp; lowercase 、limitTo、orderBy…等)，但其都是依照以下的方式運作，將拿取的資料傳給filter</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; data | filter:options &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>pipe( | ) 會將data輸出到後面的filter</p>
+<a id="more"></a>
+<h3 id="1-currency-filter-會列印出正確的金錢符號和小數點位數"><a href="#1-currency-filter-會列印出正確的金錢符號和小數點位數" class="headerlink" title="1.currency filter: 會列印出正確的金錢符號和小數點位數"></a>1.currency filter: 會列印出正確的金錢符號和小數點位數</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;product.price | currency &#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-uppercase-amp-lowercase-filter-變更為大-小寫"><a href="#2-uppercase-amp-lowercase-filter-變更為大-小寫" class="headerlink" title="2.uppercase &amp; lowercase filter: 變更為大/小寫"></a>2.uppercase &amp; lowercase filter: 變更為大/小寫</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;<span class="string">'octagon gem'</span> | uppercase&#125;&#125; </span><br><span class="line">=&gt;  OCTAGON GEM</span><br></pre></td></tr></table></figure>
+<h3 id="3-limitTo-filter-可用來控制輸出的個數"><a href="#3-limitTo-filter-可用來控制輸出的個數" class="headerlink" title="3.limitTo filter: 可用來控制輸出的個數"></a>3.limitTo filter: 可用來控制輸出的個數</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;li ng-repeat=<span class="string">"product in store.products | limitTo:3"</span>&gt;</span><br><span class="line">=&gt; 只會輸出前3個product</span><br></pre></td></tr></table></figure>
+<h3 id="4-orderBy-filter-可用來排序輸出"><a href="#4-orderBy-filter-可用來排序輸出" class="headerlink" title="4.orderBy filter: 可用來排序輸出"></a>4.orderBy filter: 可用來排序輸出</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;li ng-repeat=<span class="string">"product in store.products | orderBy:'-price'"</span>&gt;</span><br><span class="line">=&gt; 對product 依價格從高到低排序輸出</span><br></pre></td></tr></table></figure>
+<h3 id="5-data-filter-顯示時間的格式"><a href="#5-data-filter-顯示時間的格式" class="headerlink" title="5. data filter: 顯示時間的格式"></a>5. data filter: 顯示時間的格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;<span class="string">'1388123412323'</span> | date:<span class="string">'MM/dd/yyyy @ h:mma'</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ng-src-directive"><a href="#ng-src-directive" class="headerlink" title="ng-src directive"></a>ng-src directive</h2><p>可用來顯示圖片<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img ng-src=<span class="string">"&#123;&#123;product.images[0]&#125;&#125;"</span>/&gt;</span><br><span class="line">=&gt; 顯示product的第1筆圖片</span><br></pre></td></tr></table></figure></p>
+<h2 id="ng-click-directive"><a href="#ng-click-directive" class="headerlink" title="ng-click directive"></a>ng-click directive</h2><p>ng-click directive 是當有ng-click 事件發生的時候，會去執行expression的內容。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt; &lt;a href ng-click=<span class="string">"tab = 1"</span>&gt; Description&lt;/a&gt; &lt;/li&gt;</span><br><span class="line">  &lt;li&gt; &lt;a href ng-click=<span class="string">"tab = 2"</span>&gt; Specifications&lt;/a&gt; &lt;/li&gt;</span><br><span class="line">  &lt;li&gt; &lt;a href ng-click=<span class="string">"tab = 3"</span>&gt; Reviews&lt;/a&gt; &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&#123;&#123;tab&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>在此對 ng-click directive賦值，如tab = 1，所以當我們按下第一個tabs時，tab值等於1。<br>如果要讓tab的值顯示在頁面上，可以使用 tab expression。<br>當ng-click 改變 tab值，tab expression也會跟著改變，我們稱這為2-way Data Binding。</p>
+<h2 id="ng-bind-directive"><a href="#ng-bind-directive" class="headerlink" title="ng-bind directive"></a>ng-bind directive</h2><ul>
+<li>與雙大括號expression相同，可取出controller的值，並在view 顯示出來，同時也會維持資料的綁定和更新。</li>
+<li>但是ng-bind 優點多於雙大括號，可以避免AngularJS載入時雙大括號會發生殘影的問題。</li>
+</ul>
+<h2 id="ng-init-directive"><a href="#ng-init-directive" class="headerlink" title="ng-init directive"></a>ng-init directive</h2><p>ng-init directive允許我們在當前的scope裡對expression設定初始值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ng-init=<span class="string">"tab = 1"</span></span><br><span class="line">=&gt; 代表初始化值為tab = 1</span><br></pre></td></tr></table></figure>
+<h2 id="ng-class-directive"><a href="#ng-class-directive" class="headerlink" title="ng-class directive"></a>ng-class directive</h2><ul>
+<li>ng-class directive 用來選擇性地套用與移除元素的css。</li>
+<li>ng-class 可以用字串或物件作為內容值，如果它是個字串，就直接套用css。<br>如果是個物件(從controller裡的函式回傳)，AngularJS 會根據物件values 為 true 或 false ,來套用或移除css。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng-class=<span class="string">"&#123; active:tab === 1 &#125;"</span></span><br></pre></td></tr></table></figure>
+<p>設定class的name(在此為active)，之後是一個expression賦值，如果expression為true，會新增active的class。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/Angular/2016/04/11/angular-notes-2/" data-id="cjs05fr540006tsliiclrp5lf" class="article-share-link">Share</a>
+      
+        <a href="http://chengjiwang.github.io/Blog/Angular/2016/04/11/angular-notes-2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Angular/">Angular</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/Angular/2016/04/12/angular-notes-3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Angular學習筆記3
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/Angular/2016/04/10/angular-notes-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Angular學習筆記1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Bootstrap/">Bootstrap</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/OAuth-2-0/">OAuth 2.0</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/React/">React</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/es6/">es6</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/Angular/" style="font-size: 16.67px;">Angular</a> <a href="/Blog/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/Blog/tags/ES6/" style="font-size: 16.67px;">ES6</a> <a href="/Blog/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/Blog/tags/React/" style="font-size: 13.33px;">React</a> <a href="/Blog/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/Blog/tags/es6/" style="font-size: 13.33px;">es6</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/28/JavaScript-arrow-function/">ES6 - arrow function</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/25/JavaScript-this/">JavaScript - this</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/24/JavaScript-destructuring/">ES6 - 解構賦值</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/23/JavaScript-spread-rest/">ES6 - spread operator 與 rest operator</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/22/JavaScript-let-const/">ES6 - let 與 const</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Chengji Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chengjisblog';
+  
+  var disqus_url = 'http://chengjiwang.github.io/Blog/Angular/2016/04/11/angular-notes-2/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

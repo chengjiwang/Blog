@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>JavaScript - Prototype | Chengji&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原型(prototype) 物件可以從其他物件繼承屬性和行為，也就是原型繼承(prototype inheritance)，被繼承的物件就是原型。  我們會把通用的屬性放在原型裡，專屬的屬性放在物件實例裡。  如果我們在物件實例叫用一個屬性，會先在物件裡尋找，如果無法找到，才會到原型去尋找。">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript - Prototype">
+<meta property="og:url" content="http://chengjiwang.github.io/Blog/JavaScript/2016/05/27/javaScript-prototype/index.html">
+<meta property="og:site_name" content="Chengji&#39;s Blog">
+<meta property="og:description" content="原型(prototype) 物件可以從其他物件繼承屬性和行為，也就是原型繼承(prototype inheritance)，被繼承的物件就是原型。  我們會把通用的屬性放在原型裡，專屬的屬性放在物件實例裡。  如果我們在物件實例叫用一個屬性，會先在物件裡尋找，如果無法找到，才會到原型去尋找。">
+<meta property="og:locale" content="zh-Hant-TW">
+<meta property="og:updated_time" content="2018-11-19T14:17:50.979Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript - Prototype">
+<meta name="twitter:description" content="原型(prototype) 物件可以從其他物件繼承屬性和行為，也就是原型繼承(prototype inheritance)，被繼承的物件就是原型。  我們會把通用的屬性放在原型裡，專屬的屬性放在物件實例裡。  如果我們在物件實例叫用一個屬性，會先在物件裡尋找，如果無法找到，才會到原型去尋找。">
+  
+    <link rel="alternate" href="/atom.xml" title="Chengji&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">Chengji&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">Home</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chengjiwang.github.io/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javaScript-prototype" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/JavaScript/2016/05/27/javaScript-prototype/" class="article-date">
+  <time datetime="2016-05-27T09:45:49.000Z" itemprop="datePublished">2016-05-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/JavaScript/">JavaScript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript - Prototype
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="原型-prototype"><a href="#原型-prototype" class="headerlink" title="原型(prototype)"></a>原型(prototype)</h2><ul>
+<li><p>物件可以從其他物件繼承屬性和行為，也就是原型繼承(prototype inheritance)，被繼承的物件就是原型。</p>
+</li>
+<li><p>我們會把通用的屬性放在原型裡，專屬的屬性放在物件實例裡。</p>
+</li>
+<li><p>如果我們在物件實例叫用一個屬性，會先在物件裡尋找，如果無法找到，才會到原型去尋找。</p>
+</li>
+</ul>
+<a id="more"></a>
+<p>以下程式碼每個物件都有bark方法的一個副本，會造成資源影響，要解決這個問題可以使用原型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name, breed, weight</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.breed = breed;</span><br><span class="line">	<span class="keyword">this</span>.weight = weight;</span><br><span class="line">	<span class="keyword">this</span>.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span>.weight &gt; <span class="number">25</span>) &#123;</span><br><span class="line">			alert(<span class="keyword">this</span>.name + <span class="string">" says Woof!"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			alert(<span class="keyword">this</span>.name + <span class="string">" says Yip!"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fido = <span class="keyword">new</span> Dog(<span class="string">"Fido"</span>, <span class="string">"Mixed"</span>, <span class="number">38</span>);</span><br><span class="line"><span class="keyword">var</span> fluffy = <span class="keyword">new</span> Dog(<span class="string">"Fluffy"</span>, <span class="string">"Poodle"</span>, <span class="number">30</span>);</span><br><span class="line"><span class="keyword">var</span> spot = <span class="keyword">new</span> Dog(<span class="string">"Spot"</span>, <span class="string">"Chihuahua"</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="設置原型"><a href="#設置原型" class="headerlink" title="設置原型"></a>設置原型</h2><ul>
+<li>透過建構程序的prototype屬性來存取原型</li>
+<li>只要我們新增一個屬性到原型，任何繼承該原型物件都可以使用該屬性。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name, breed, weight</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.breed = breed;</span><br><span class="line">	<span class="keyword">this</span>.weight = weight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>.weight &gt; <span class="number">25</span>) &#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name + <span class="string">" says Woof!"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name + <span class="string">" says Yip!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fido = <span class="keyword">new</span> Dog(<span class="string">"Fido"</span>, <span class="string">"Mixed"</span>, <span class="number">38</span>);</span><br><span class="line"><span class="keyword">var</span> fluffy = <span class="keyword">new</span> Dog(<span class="string">"Fluffy"</span>, <span class="string">"Poodle"</span>, <span class="number">30</span>);</span><br><span class="line"><span class="keyword">var</span> spot = <span class="keyword">new</span> Dog(<span class="string">"Spot"</span>, <span class="string">"Chihuahua"</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="覆寫原型"><a href="#覆寫原型" class="headerlink" title="覆寫原型"></a>覆寫原型</h2><p>雖然我們從原型繼承某些屬性，但我們還是可以覆寫屬性，只要在物件裡新增屬性即可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spot.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" says WOOF!"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty"></a>hasOwnProperty</h2><p>物件的 hasOwnProperty 方法可以判斷屬性是位於物件(回傳true)或是原型(回傳false)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Dog.prototype.species= <span class="string">'canine'</span>;</span><br><span class="line">spot.hasOwnProperty(<span class="string">"species"</span>); <span class="comment">//回傳false，因為species定義於原型，而非spot物件</span></span><br></pre></td></tr></table></figure>
+<h2 id="原型鏈-chain-of-prototypes"><a href="#原型鏈-chain-of-prototypes" class="headerlink" title="原型鏈(chain of prototypes)"></a>原型鏈(chain of prototypes)</h2><ul>
+<li>一個物件並非只能從原型繼承屬性，也可以從原型所構成的原型鏈繼承屬性。</li>
+<li>原型鏈就是一個原型繼承自另一個原型(在此為 Dog prototype)。</li>
+</ul>
+<h3 id="建立繼承自Dog-prototype-的原型"><a href="#建立繼承自Dog-prototype-的原型" class="headerlink" title="建立繼承自Dog prototype 的原型"></a>建立繼承自Dog prototype 的原型</h3><p>新增一個建構程序，將它的prototype屬性設定為一個新的物件實例，並設定constructor屬性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ShowDog</span>(<span class="params">name, breed, weight, handler</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.breed = breed;</span><br><span class="line">	<span class="keyword">this</span>.weight = weight;</span><br><span class="line">	<span class="keyword">this</span>.handler = handler;</span><br><span class="line">&#125;</span><br><span class="line">ShowDog.prototype = <span class="keyword">new</span> Dog();</span><br><span class="line">ShowDog.prototype.constructor = ShowDog;</span><br></pre></td></tr></table></figure></p>
+<p>之後就可以對ShowDog.prototype 新增一些屬性，和建立ShowDog的物件實例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ShowDog.prototype.bait = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"Bait"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> scotty = <span class="keyword">new</span> ShowDog(<span class="string">"Scotty"</span>, <span class="string">"Scottish Terrier"</span>, <span class="number">15</span>, <span class="string">"Cookie"</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chengjiwang.github.io/Blog/JavaScript/2016/05/27/javaScript-prototype/" data-id="cjs05fr5o000ktslijj4w6h3p" class="article-share-link">Share</a>
+      
+        <a href="http://chengjiwang.github.io/Blog/JavaScript/2016/05/27/javaScript-prototype/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/React/2016/06/04/react-jsx/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          React - JSX 語法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/JavaScript/2016/05/25/javaScript-scope-hoisting/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript - Scope &amp; Hoisting</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Bootstrap/">Bootstrap</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/OAuth-2-0/">OAuth 2.0</a></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/React/">React</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/OAuth-2-0/">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Blog/tags/es6/">es6</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/Angular/" style="font-size: 16.67px;">Angular</a> <a href="/Blog/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/Blog/tags/ES6/" style="font-size: 16.67px;">ES6</a> <a href="/Blog/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/Blog/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/Blog/tags/React/" style="font-size: 13.33px;">React</a> <a href="/Blog/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/Blog/tags/es6/" style="font-size: 13.33px;">es6</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/28/JavaScript-arrow-function/">ES6 - arrow function</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/25/JavaScript-this/">JavaScript - this</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/24/JavaScript-destructuring/">ES6 - 解構賦值</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/23/JavaScript-spread-rest/">ES6 - spread operator 與 rest operator</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/JavaScript/2019/01/22/JavaScript-let-const/">ES6 - let 與 const</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Chengji Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chengjisblog';
+  
+  var disqus_url = 'http://chengjiwang.github.io/Blog/JavaScript/2016/05/27/javaScript-prototype/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>
